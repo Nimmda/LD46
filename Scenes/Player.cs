@@ -15,7 +15,7 @@ public class Player : KinematicBody2D
         velocity.x = 0;
         bool right = Input.IsActionPressed("ui_right");
         bool left = Input.IsActionPressed("ui_left");
-        bool jump = Input.IsActionPressed("ui_select");
+        bool jump = Input.IsActionPressed("ui_up");
 
         if (jump && IsOnFloor())
         {
