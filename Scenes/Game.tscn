@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://TileSets/environment.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
@@ -17,6 +17,12 @@
 [ext_resource path="res://Assets/Original/torchOut/torchOut7.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Original/torchOut/torchOut4.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/Torch.cs" type="Script" id=17]
+[ext_resource path="res://Assets/Original/demonMove/fireDemonMove1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Original/demonMove/fireDemonMove3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Original/demonMove/fireDemonMove2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Original/demonMove/fireDemonMove4.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Original/demonMove/fireDemonMove5.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Original/demonMove/fireDemonMove6.png" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -24,6 +30,11 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "move",
+"speed": 15.0
 } ]
 
 [sub_resource type="Animation" id=1]
@@ -31,7 +42,7 @@ resource_name = "Idle"
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 5.5986
-height = 7.53299
+height = 4.92966
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -70,6 +81,7 @@ script = ExtResource( 3 )
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = SubResource( 5 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
@@ -86,11 +98,13 @@ zoom = Vector2( 0.4, 0.4 )
 [node name="Torch" type="Area2D" parent="."]
 position = Vector2( 296, 255.61 )
 script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torch"]
 frames = SubResource( 3 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torch"]

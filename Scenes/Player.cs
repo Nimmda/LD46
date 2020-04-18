@@ -6,9 +6,16 @@ public class Player : KinematicBody2D
     [Export] public int RunSpeed = 100;
     [Export] public int JumpSpeed = -400;
     [Export] public int Gravity = 1200;
+    [Export] public int healtPoints = 100;
+    private AnimatedSprite sprite = null;
 
     Vector2 velocity = new Vector2();
     bool jumping = false;
+
+    public override void _Ready()
+    {
+        sprite = GetNode<AnimatedSprite>("Sprite");
+    }
 
     public void GetInput()
     {
@@ -24,9 +31,27 @@ public class Player : KinematicBody2D
         }
 
         if (right)
+        {
             velocity.x += RunSpeed;
+            sprite.FlipH = false;
+        }
+
         if (left)
+        {
             velocity.x -= RunSpeed;
+            sprite.FlipH = true;
+        }
+
+        if (Mathf.Abs(velocity.x) > 0.01f && !jumping)
+        {
+            sprite.Animation = "move";
+
+        }
+        else
+        {
+            sprite.Animation = "idle";
+
+        }
     }
 
     public override void _PhysicsProcess(float delta)
