@@ -1,9 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TileSets/environment.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Player.cs" type="Script" id=3]
-[ext_resource path="res://Assets/Spritesheets/tileset_demon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Original/fireDemon3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Original/torchaseprite2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Original/torchaseprite3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Original/torchaseprite1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Original/fireDemon1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Original/fireDemon2.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -12,6 +25,16 @@ resource_name = "Idle"
 radius = 5.5986
 height = 7.53299
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -19,16 +42,16 @@ script = ExtResource( 2 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 1114127, 2, 0, 1114128, 2, 0, 1114129, 2, 0, 1114130, 2, 0, 1114131, 1, 0, 1114132, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179674, 1, 0, 1245205, 1, 0, 1245206, 2, 0, 1245207, 2, 0, 1245208, 2, 0, 1245209, 2, 0, 1245210, 1, 0 )
+tile_data = PoolIntArray( 1114127, 2, 0, 1114128, 2, 0, 1114129, 2, 0, 1114130, 2, 0, 1114131, 1, 0, 1114132, 1, 0, 1114136, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179674, 1, 0, 1245205, 1, 0, 1245206, 2, 0, 1245207, 2, 0, 1245208, 2, 0, 1245209, 2, 0, 1245210, 1, 0 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 320.345, 247.61 )
+position = Vector2( 392, 247.61 )
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 16, 16 )
+[node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
+frames = SubResource( 5 )
+frame = 1
+playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
 anims/Idle = SubResource( 1 )
@@ -40,3 +63,14 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="Torch" type="Area2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Torch"]
+position = Vector2( 312.345, 248 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torch"]
+shape = SubResource( 4 )
