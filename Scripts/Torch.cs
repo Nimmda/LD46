@@ -18,8 +18,9 @@ public class Torch : Area2D
     //  {
     //      
     //  }
-    public void OnTorchBodyEntered(KinematicBody2D body)
+    public void OnTorchBodyEntered(Player player)
     {
         sprite.Animation = "burnOut";
+        player.AddHealth(20);
     }
 }

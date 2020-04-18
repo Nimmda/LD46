@@ -65,21 +65,6 @@ resource_name = "Idle"
 radius = 5.5986
 height = 4.92966
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "burnOut",
-"speed": 5.0
-} ]
-
-[sub_resource type="CircleShape2D" id=6]
-
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.203922, 0.203922, 0.203922, 1 )
 corner_radius_top_left = 20
@@ -94,6 +79,21 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "burnOut",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=6]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -113,7 +113,6 @@ tile_data = PoolIntArray( 327681, 1, 0, 393217, 1, 0, 458753, 1, 0, 458781, 1, 0
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 392, 247.61 )
 script = ExtResource( 3 )
-healtPoints = -184
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 5 )
@@ -130,22 +129,6 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 0.4, 0.4 )
-
-[node name="Torch" type="Area2D" parent="."]
-position = Vector2( 296, 255.61 )
-script = ExtResource( 17 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Torch"]
-frames = SubResource( 3 )
-animation = "idle"
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Torch"]
-visible = false
-shape = SubResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -168,4 +151,56 @@ position = Vector2( 50, 50 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 8 )
 script = ExtResource( 39 )
-[connection signal="body_entered" from="Torch" to="Torch" method="OnTorchBodyEntered"]
+
+[node name="Torches" type="Node" parent="."]
+
+[node name="Torch" type="Area2D" parent="Torches"]
+position = Vector2( 296, 255.61 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch"]
+frames = SubResource( 3 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch"]
+visible = false
+shape = SubResource( 6 )
+
+[node name="Torch2" type="Area2D" parent="Torches"]
+position = Vector2( 216, 208 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch2"]
+frames = SubResource( 3 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch2"]
+visible = false
+shape = SubResource( 6 )
+
+[node name="Torch3" type="Area2D" parent="Torches"]
+position = Vector2( 120, 168 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch3"]
+frames = SubResource( 3 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch3"]
+visible = false
+shape = SubResource( 6 )
+[connection signal="body_entered" from="Torches/Torch" to="Torches/Torch" method="OnTorchBodyEntered"]
+[connection signal="body_entered" from="Torches/Torch2" to="Torches/Torch2" method="OnTorchBodyEntered"]
+[connection signal="body_entered" from="Torches/Torch3" to="Torches/Torch3" method="OnTorchBodyEntered"]

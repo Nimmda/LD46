@@ -7,7 +7,10 @@ public class Player : KinematicBody2D
     [Export] public int JumpSpeed = -400;
     [Export] public int Gravity = 1200;
     [Export] public int healtPoints = 100;
+    [Export] public int healthDecrease = 5;
     private AnimatedSprite sprite = null;
+    private bool isDecreasingHealth = false;
+    private string currentAnim = "idle";
 
     Vector2 velocity = new Vector2();
     bool jumping = false;
@@ -15,6 +18,7 @@ public class Player : KinematicBody2D
     public override void _Ready()
     {
         sprite = GetNode<AnimatedSprite>("Sprite");
+
     }
 
     public void GetInput()
@@ -33,26 +37,30 @@ public class Player : KinematicBody2D
         if (right)
         {
             velocity.x += RunSpeed;
-            sprite.FlipH = false;
+            sprite.FlipH = true;
         }
 
         if (left)
         {
             velocity.x -= RunSpeed;
-            sprite.FlipH = true;
+            sprite.FlipH = false;
         }
-
-        var currentAnim = "idle";
 
         if (left || right)
         {
             currentAnim = "move";
         }
+        else
+            currentAnim = "idle";
 
         if (jumping)
+        {
             currentAnim = "jumping";
+            GD.Print("jump");
+        }
 
-        sprite.Animation = currentAnim;
+        if (sprite.Animation != currentAnim)
+            sprite.Animation = currentAnim;
     }
 
     public override void _PhysicsProcess(float delta)
@@ -60,11 +68,38 @@ public class Player : KinematicBody2D
         GetInput();
         velocity.y += Gravity * delta;
 
+        velocity = MoveAndSlide(velocity, new Vector2(0, -1));
+
         if (jumping && IsOnFloor())
         {
             jumping = false;
         }
 
-        velocity = MoveAndSlide(velocity, new Vector2(0, -1));
+
+        if (!isDecreasingHealth)
+        {
+            isDecreasingHealth = true;
+            DecreaseHealth();
+        }
+    }
+
+    private async void DecreaseHealth()
+    {
+        var timer = new Timer();
+        timer.Autostart = false;
+        timer.WaitTime = 1f;
+
+        GetTree().Root.AddChild(timer);
+        timer.Start();
+
+        await ToSignal(timer, "timeout");
+        // decrease health after 1 second
+        healtPoints -= healthDecrease;
+        isDecreasingHealth = false;
+    }
+
+    public void AddHealth(int amount)
+    {
+        healtPoints = Mathf.Min(amount + healtPoints, 100);
     }
 }
