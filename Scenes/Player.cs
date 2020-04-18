@@ -3,19 +3,38 @@ using System;
 
 public class Player : KinematicBody2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    [Export] public int RunSpeed = 100;
+    [Export] public int JumpSpeed = -400;
+    [Export] public int Gravity = 1200;
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    Vector2 velocity = new Vector2();
+    bool jumping = false;
+
+    public void GetInput()
     {
-        
+        velocity.x = 0;
+        bool right = Input.IsActionPressed("ui_right");
+        bool left = Input.IsActionPressed("ui_left");
+        bool jump = Input.IsActionPressed("ui_select");
+
+        if (jump && IsOnFloor())
+        {
+            jumping = true;
+            velocity.y = JumpSpeed;
+        }
+
+        if (right)
+            velocity.x += RunSpeed;
+        if (left)
+            velocity.x -= RunSpeed;
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public override void _PhysicsProcess(float delta)
+    {
+        GetInput();
+        velocity.y += Gravity * delta;
+        if (jumping && IsOnFloor())
+            jumping = false;
+        velocity = MoveAndSlide(velocity, new Vector2(0, -1));
+    }
 }
