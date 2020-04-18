@@ -42,24 +42,29 @@ public class Player : KinematicBody2D
             sprite.FlipH = true;
         }
 
-        if (Mathf.Abs(velocity.x) > 0.01f && !jumping)
-        {
-            sprite.Animation = "move";
+        var currentAnim = "idle";
 
-        }
-        else
+        if (left || right)
         {
-            sprite.Animation = "idle";
-
+            currentAnim = "move";
         }
+
+        if (jumping)
+            currentAnim = "jumping";
+
+        sprite.Animation = currentAnim;
     }
 
     public override void _PhysicsProcess(float delta)
     {
         GetInput();
         velocity.y += Gravity * delta;
+
         if (jumping && IsOnFloor())
+        {
             jumping = false;
+        }
+
         velocity = MoveAndSlide(velocity, new Vector2(0, -1));
     }
 }
