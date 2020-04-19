@@ -29,7 +29,7 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_top = 11.0
+margin_top = 21.0
 margin_right = 75.0
 margin_bottom = 35.88
 size_flags_vertical = 0
@@ -41,7 +41,7 @@ __meta__ = {
 [node name="Exit" type="Button" parent="VBoxContainer"]
 margin_top = 45.0
 margin_right = 75.0
-margin_bottom = 69.88
+margin_bottom = 59.88
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
 text = "EXIT"
