@@ -200,13 +200,12 @@ script = ExtResource( 2 )
 position = Vector2( 424, 264 )
 z_index = 9
 script = ExtResource( 3 )
-healtPoints = 2
 healthDecrease = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
