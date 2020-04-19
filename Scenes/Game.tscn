@@ -52,7 +52,7 @@ animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "death",
-"speed": 5.0
+"speed": 4.0
 } ]
 
 [sub_resource type="Animation" id=2]
@@ -206,6 +206,7 @@ healthDecrease = 1
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]

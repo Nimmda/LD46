@@ -17,7 +17,6 @@ public class Start : Control
     {
         if (StartScene != null)
         {
-
             GetTree().ChangeSceneTo(scene);
         }
     }
