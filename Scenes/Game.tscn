@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scenes/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Player.cs" type="Script" id=3]
 [ext_resource path="res://Assets/Original/fireDemon3.png" type="Texture" id=4]
+[ext_resource path="res://uiTHeme.theme" type="Theme" id=5]
 [ext_resource path="res://Assets/Original/fireDemon1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Original/fireDemon2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove1.png" type="Texture" id=18]
@@ -55,17 +56,36 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="Animation" id=6]
+resource_name = "TextVisible"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hint/Panel/RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
+hint = NodePath("CanvasLayer/Hint")
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 456, 248 )
+position = Vector2( 424, 264 )
+z_index = 9
 script = ExtResource( 3 )
 healthDecrease = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
@@ -80,8 +100,11 @@ current = true
 zoom = Vector2( 0.4, 0.4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
 [node name="ContainerHUD" type="CenterContainer" parent="CanvasLayer"]
+visible = false
 margin_left = 50.0
 margin_top = 50.0
 rect_min_size = Vector2( 100, 100 )
@@ -90,6 +113,7 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="CanvasLayer/ContainerHUD"]
+visible = false
 margin_right = 100.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
@@ -102,6 +126,35 @@ margin_right = 40.0
 margin_bottom = 40.0
 text = "Life: 100"
 script = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hint" type="AnimationPlayer" parent="CanvasLayer"]
+anims/TextVisible = SubResource( 6 )
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Hint"]
+visible = false
+anchor_right = 0.075
+anchor_bottom = 0.026
+margin_left = 72.0
+margin_top = 60.0
+margin_right = 112.0
+margin_bottom = 100.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Hint/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+text = "Water is your enemy and try to refresh with the torches."
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
