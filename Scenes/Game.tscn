@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://TileSets/environment.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.10.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.5.png" type="Texture" id=33]
 [ext_resource path="res://Scripts/Info.cs" type="Script" id=34]
+[ext_resource path="res://Scripts/UI/MenuController.cs" type="Script" id=35]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x19.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x17.png" type="Texture" id=41]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x18.png" type="Texture" id=42]
@@ -79,7 +80,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
@@ -92,9 +93,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=6]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 43 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ],
 "loop": false,
@@ -102,10 +103,10 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 7.07578, 7 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 8 )
 
 [node name="Game" type="Node2D"]
@@ -125,7 +126,7 @@ healthDecrease = 1
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
@@ -176,13 +177,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch"]
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch"]
 visible = false
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Torch2" type="Area2D" parent="Torches"]
 position = Vector2( 216, 208 )
@@ -192,13 +194,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch2"]
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch2"]
 visible = false
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Torch3" type="Area2D" parent="Torches"]
 position = Vector2( 120, 168 )
@@ -208,13 +211,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch3"]
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch3"]
 visible = false
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Water" type="Node" parent="."]
 
@@ -228,13 +232,13 @@ __meta__ = {
 
 [node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Middle"]
 visible = false
-frames = SubResource( 8 )
+frames = SubResource( 7 )
 offset = Vector2( 0, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Middle"]
 visible = false
 position = Vector2( 0, -5 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="Stone" type="StaticBody2D" parent="Water/Middle"]
 
@@ -242,7 +246,7 @@ shape = SubResource( 9 )
 texture = ExtResource( 51 )
 
 [node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Middle/Stone"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Left" type="Area2D" parent="Water"]
 position = Vector2( 376, 256 )
@@ -254,13 +258,13 @@ __meta__ = {
 
 [node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Left"]
 visible = false
-frames = SubResource( 8 )
+frames = SubResource( 7 )
 offset = Vector2( 0, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Left"]
 visible = false
 position = Vector2( 0, -5 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="Stone" type="StaticBody2D" parent="Water/Left"]
 
@@ -268,7 +272,7 @@ shape = SubResource( 9 )
 texture = ExtResource( 52 )
 
 [node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Left/Stone"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Right" type="Area2D" parent="Water"]
 position = Vector2( 408, 256 )
@@ -280,13 +284,13 @@ __meta__ = {
 
 [node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Right"]
 visible = false
-frames = SubResource( 8 )
+frames = SubResource( 7 )
 offset = Vector2( 0, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Right"]
 visible = false
 position = Vector2( 0, -5 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="Stone" type="StaticBody2D" parent="Water/Right"]
 
@@ -294,7 +298,7 @@ shape = SubResource( 9 )
 texture = ExtResource( 53 )
 
 [node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Right/Stone"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Solo" type="Area2D" parent="Water"]
 position = Vector2( 264, 240 )
@@ -306,13 +310,13 @@ __meta__ = {
 
 [node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Solo"]
 visible = false
-frames = SubResource( 8 )
+frames = SubResource( 7 )
 offset = Vector2( 0, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Solo"]
 visible = false
 position = Vector2( 0, -5 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="Stone" type="StaticBody2D" parent="Water/Solo"]
 
@@ -320,7 +324,11 @@ shape = SubResource( 9 )
 texture = ExtResource( 49 )
 
 [node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Solo/Stone"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
+
+[node name="MenuController" type="Node2D" parent="."]
+pause_mode = 2
+script = ExtResource( 35 )
 [connection signal="body_entered" from="Torches/Torch" to="Torches/Torch" method="OnTorchBodyEntered"]
 [connection signal="body_entered" from="Torches/Torch2" to="Torches/Torch2" method="OnTorchBodyEntered"]
 [connection signal="body_entered" from="Torches/Torch3" to="Torches/Torch3" method="OnTorchBodyEntered"]

@@ -9,9 +9,5 @@ public class Game : Node2D
         VisualServer.SetDefaultClearColor(new Color(0f, 0f, 0f, 1));
     }
 
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
+
 }
