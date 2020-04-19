@@ -80,6 +80,8 @@ public class Player : KinematicBody2D
             isDecreasingHealth = true;
             DecreaseHealth();
         }
+
+        SetScale();
     }
 
     private async void DecreaseHealth()
@@ -101,4 +103,11 @@ public class Player : KinematicBody2D
     {
         healtPoints = Mathf.Min(amount + healtPoints, 100);
     }
+
+    private void SetScale()
+    {
+        var scaling = healtPoints / 100.0f;
+        Scale = new Vector2(scaling, scaling);
+    }
+
 }

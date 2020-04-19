@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://TileSets/environment.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
@@ -33,12 +33,7 @@
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.7.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.10.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.5.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Original/healthbar/healtbar3.png" type="Texture" id=34]
-[ext_resource path="res://Assets/Original/healthbar/healtbar5.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Original/healthbar/healtbar4.png" type="Texture" id=36]
-[ext_resource path="res://Assets/Original/healthbar/healtbar2.png" type="Texture" id=37]
-[ext_resource path="res://Assets/Original/healthbar/healtbar1.png" type="Texture" id=38]
-[ext_resource path="res://Scripts/Health.cs" type="Script" id=39]
+[ext_resource path="res://Scripts/Info.cs" type="Script" id=34]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x19.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x17.png" type="Texture" id=41]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x18.png" type="Texture" id=42]
@@ -84,14 +79,6 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 38 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "default",
-"speed": 5.0
-} ]
-
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
@@ -133,10 +120,12 @@ tile_data = PoolIntArray( 327681, 1, 0, 393217, 1, 0, 458753, 1, 0, 458781, 1, 0
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 456, 248 )
 script = ExtResource( 3 )
+healthDecrease = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
@@ -166,11 +155,16 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 custom_styles/panel = SubResource( 4 )
 
-[node name="Health" type="AnimatedSprite" parent="CanvasLayer/ContainerHUD/Panel"]
-position = Vector2( 50, 50 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 5 )
-script = ExtResource( 39 )
+[node name="Label" type="Label" parent="CanvasLayer/ContainerHUD/Panel"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 40.0
+margin_bottom = 40.0
+text = "Life: 100"
+script = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Torches" type="Node" parent="."]
 
@@ -184,7 +178,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch"]
 frames = SubResource( 6 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch"]
@@ -201,7 +194,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch2"]
 frames = SubResource( 6 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch2"]
@@ -218,7 +210,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch3"]
 frames = SubResource( 6 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch3"]
