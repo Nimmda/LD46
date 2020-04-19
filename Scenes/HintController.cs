@@ -23,7 +23,7 @@ public class HintController : CanvasLayer
         await ToSignal(timer, "timeout");
         hintAnim.GetNode<Panel>("Panel").Visible = true;
         hintAnim.CurrentAnimation = "TextVisible";
-        FadeOutHint(anim, anim.CurrentAnimationLength + 1f);
+        FadeOutHint(anim, anim.CurrentAnimationLength + 2f);
     }
 
     public async void FadeOutHint(AnimationPlayer anim, float time)
