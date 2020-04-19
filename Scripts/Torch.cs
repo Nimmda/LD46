@@ -28,7 +28,7 @@ public class Torch : Area2D
     public void OnTorchBodyEntered(Player player)
     {
         sprite.Animation = "burnOut";
-        player.AddHealth(20);
+        player.AddHealth(50);
         Disconnect("body_entered", this, "OnTorchBodyEntered");
     }
 }

@@ -11,6 +11,7 @@ public class Player : KinematicBody2D
     private AnimatedSprite sprite = null;
     private bool isDecreasingHealth = false;
     private string currentAnim = "idle";
+    private Camera2D camera = null;
 
     Vector2 velocity = new Vector2();
     bool jumping = false;
@@ -18,6 +19,7 @@ public class Player : KinematicBody2D
     public override void _Ready()
     {
         sprite = GetNode<AnimatedSprite>("Sprite");
+        camera = GetNode<Camera2D>("Camera2D");
 
     }
 
@@ -80,6 +82,8 @@ public class Player : KinematicBody2D
             isDecreasingHealth = true;
             DecreaseHealth();
         }
+
+        SetScale();
     }
 
     private async void DecreaseHealth()
@@ -101,4 +105,15 @@ public class Player : KinematicBody2D
     {
         healtPoints = Mathf.Min(amount + healtPoints, 100);
     }
+
+    private void SetScale()
+    {
+        var scaling = (healtPoints / 100.0f);
+        Scale = new Vector2(scaling, scaling) + new Vector2(0.5f, 0.5f);
+
+        // set camera
+        //camera.Zoom = scaling * new Vector2(0.4f, 0.4f);
+
+    }
+
 }

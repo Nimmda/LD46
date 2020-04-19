@@ -1,22 +1,11 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://TileSets/environment.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Player.cs" type="Script" id=3]
 [ext_resource path="res://Assets/Original/fireDemon3.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Original/torchaseprite2.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Original/torchaseprite3.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Original/torchaseprite1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Original/fireDemon1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Original/fireDemon2.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Original/torchOut/torchOut1.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Original/torchOut/torchOut2.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Original/torchOut/torchOut3.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Original/torchOut/torchOut5.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Original/torchOut/torchOut6.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Original/torchOut/torchOut7.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Original/torchOut/torchOut4.png" type="Texture" id=16]
-[ext_resource path="res://Scripts/Torch.cs" type="Script" id=17]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove3.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove2.png" type="Texture" id=20]
@@ -33,26 +22,8 @@
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.7.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.10.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.5.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Original/healthbar/healtbar3.png" type="Texture" id=34]
-[ext_resource path="res://Assets/Original/healthbar/healtbar5.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Original/healthbar/healtbar4.png" type="Texture" id=36]
-[ext_resource path="res://Assets/Original/healthbar/healtbar2.png" type="Texture" id=37]
-[ext_resource path="res://Assets/Original/healthbar/healtbar1.png" type="Texture" id=38]
-[ext_resource path="res://Scripts/Health.cs" type="Script" id=39]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x19.png" type="Texture" id=40]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x17.png" type="Texture" id=41]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x18.png" type="Texture" id=42]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x16.png" type="Texture" id=43]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x20.png" type="Texture" id=44]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x21.png" type="Texture" id=45]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x22.png" type="Texture" id=46]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x23.png" type="Texture" id=47]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x24.png" type="Texture" id=48]
-[ext_resource path="res://Assets/Original/waterStones/stoneBlockWater_16x16.png" type="Texture" id=49]
-[ext_resource path="res://Scripts/Water.cs" type="Script" id=50]
-[ext_resource path="res://Assets/Original/waterStones/stoneBlockWaterMiddle_16x16.png" type="Texture" id=51]
-[ext_resource path="res://Assets/Original/waterStones/stoneBlockWaterLeft_16x16.png" type="Texture" id=52]
-[ext_resource path="res://Assets/Original/waterStones/stoneBlockWaterRight_16x16.png" type="Texture" id=53]
+[ext_resource path="res://Scripts/Info.cs" type="Script" id=34]
+[ext_resource path="res://Scripts/UI/MenuController.cs" type="Script" id=35]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -84,55 +55,13 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 38 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "burnOut",
-"speed": 5.0
-} ]
-
-[sub_resource type="CircleShape2D" id=7]
-
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [ ExtResource( 43 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ],
-"loop": false,
-"name": "default",
-"speed": 8.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 7.07578, 7 )
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 8, 8 )
-
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
-
-[node name="floor" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 327681, 1, 0, 393217, 1, 0, 458753, 1, 0, 458781, 1, 0, 524289, 1, 0, 524317, 1, 0, 589825, 1, 0, 589853, 1, 0, 655361, 1, 0, 655389, 1, 0, 720897, 1, 0, 720901, 1, 0, 720925, 1, 0, 786433, 1, 0, 786434, 2, 0, 786435, 2, 0, 786436, 2, 0, 786437, 2, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 1, 0, 786461, 1, 0, 851977, 1, 0, 851997, 1, 0, 917513, 1, 0, 917516, 1, 0, 917517, 1, 0, 917518, 1, 0, 917533, 1, 0, 983049, 1, 0, 983069, 1, 0, 1048585, 1, 0, 1048605, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114126, 1, 0, 1114127, 2, 0, 1114128, 2, 0, 1114129, 2, 0, 1114130, 2, 0, 1114131, 1, 0, 1114132, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1179658, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179674, 1, 0, 1245194, 1, 0, 1245195, 1, 0, 1245196, 1, 0, 1245197, 1, 0, 1245205, 1, 0, 1245206, 2, 0, 1245207, 2, 0, 1245208, 2, 0, 1245209, 2, 0, 1245210, 1, 0 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 456, 248 )
 script = ExtResource( 3 )
+healthDecrease = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
@@ -166,174 +95,19 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 custom_styles/panel = SubResource( 4 )
 
-[node name="Health" type="AnimatedSprite" parent="CanvasLayer/ContainerHUD/Panel"]
-position = Vector2( 50, 50 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 5 )
-script = ExtResource( 39 )
-
-[node name="Torches" type="Node" parent="."]
-
-[node name="Torch" type="Area2D" parent="Torches"]
-position = Vector2( 296, 255.61 )
-script = ExtResource( 17 )
+[node name="Label" type="Label" parent="CanvasLayer/ContainerHUD/Panel"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 40.0
+margin_bottom = 40.0
+text = "Life: 100"
+script = ExtResource( 34 )
 __meta__ = {
-"_edit_group_": true
+"_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch"]
-frames = SubResource( 6 )
-animation = "idle"
-frame = 1
-playing = true
+[node name="MenuController" type="Node2D" parent="."]
+pause_mode = 2
+script = ExtResource( 35 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch"]
-visible = false
-shape = SubResource( 7 )
-
-[node name="Torch2" type="Area2D" parent="Torches"]
-position = Vector2( 216, 208 )
-script = ExtResource( 17 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch2"]
-frames = SubResource( 6 )
-animation = "idle"
-frame = 1
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch2"]
-visible = false
-shape = SubResource( 7 )
-
-[node name="Torch3" type="Area2D" parent="Torches"]
-position = Vector2( 120, 168 )
-script = ExtResource( 17 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch3"]
-frames = SubResource( 6 )
-animation = "idle"
-frame = 1
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch3"]
-visible = false
-shape = SubResource( 7 )
-
-[node name="Water" type="Node" parent="."]
-
-[node name="Middle" type="Area2D" parent="Water"]
-position = Vector2( 392, 256 )
-z_index = 99
-script = ExtResource( 50 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Middle"]
-visible = false
-frames = SubResource( 8 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Middle"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 9 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Middle"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Middle/Stone"]
-texture = ExtResource( 51 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Middle/Stone"]
-shape = SubResource( 10 )
-
-[node name="Left" type="Area2D" parent="Water"]
-position = Vector2( 376, 256 )
-z_index = 99
-script = ExtResource( 50 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Left"]
-visible = false
-frames = SubResource( 8 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Left"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 9 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Left"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Left/Stone"]
-texture = ExtResource( 52 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Left/Stone"]
-shape = SubResource( 10 )
-
-[node name="Right" type="Area2D" parent="Water"]
-position = Vector2( 408, 256 )
-z_index = 99
-script = ExtResource( 50 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Right"]
-visible = false
-frames = SubResource( 8 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Right"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 9 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Right"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Right/Stone"]
-texture = ExtResource( 53 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Right/Stone"]
-shape = SubResource( 10 )
-
-[node name="Solo" type="Area2D" parent="Water"]
-position = Vector2( 264, 240 )
-z_index = 99
-script = ExtResource( 50 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Solo"]
-visible = false
-frames = SubResource( 8 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Solo"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 9 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Solo"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Solo/Stone"]
-texture = ExtResource( 49 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Solo/Stone"]
-shape = SubResource( 10 )
-[connection signal="body_entered" from="Torches/Torch" to="Torches/Torch" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Torches/Torch2" to="Torches/Torch2" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Torches/Torch3" to="Torches/Torch3" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Water/Middle" to="Water/Middle" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Water/Left" to="Water/Left" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Water/Right" to="Water/Right" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Water/Solo" to="Water/Solo" method="OnTorchBodyEntered"]
+[node name="Level" parent="." instance=ExtResource( 1 )]
