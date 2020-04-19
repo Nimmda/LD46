@@ -56,7 +56,6 @@ public class Player : KinematicBody2D
         if (jumping)
         {
             currentAnim = "jumping";
-            GD.Print("jump");
         }
 
         if (sprite.Animation != currentAnim)
