@@ -87,15 +87,23 @@ public class Player : KinematicBody2D
         {
             if (!dead)
             {
-                Scale = new Vector2(1f, 1f);
                 sprite.Animation = "death";
             }
             dead = true;
 
             if (sprite.Frame == sprite.Frames.GetFrameCount("death") - 1)
             {
-                GD.Print("GameOver");
+                sprite.Stop();
+                GetTree().Root.GetNode<Game>("Game").GameOver();
             }
+            else
+            {             // set scaling with frame id
+                var scaling = 1.2f * (1 + sprite.Frame);
+                Scale = new Vector2(scaling, scaling);
+                var pos = new Vector2(Position.x, Position.y - (sprite.Frame));
+                Position = pos;
+            }
+
         }
         else
         {

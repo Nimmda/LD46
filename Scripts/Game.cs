@@ -4,11 +4,18 @@ using System.Collections.Generic;
 public class Game : Node2D
 {
     public List<string> Levels = new List<string>();
+    private PackedScene menuScene = null;
+    private Transition transition = null;
 
     private int currentId = -1;
     private Node currentLevel = null;
     public override void _Ready()
     {
+
+        menuScene = ResourceLoader.Load<PackedScene>("res://Scenes/Menu.tscn");
+
+        transition = GetNode<Transition>("Transition");
+
         VisualServer.SetDefaultClearColor(new Color(0f, 0f, 0f, 1));
 
         // add scenes
@@ -36,5 +43,11 @@ public class Game : Node2D
             AddChild(currentLevel);
         }
 
+    }
+
+    public void GameOver()
+    {
+
+        GetTree().ChangeSceneTo(menuScene);
     }
 }
