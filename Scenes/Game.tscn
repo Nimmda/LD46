@@ -1,12 +1,18 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/Transition.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Player.cs" type="Script" id=3]
 [ext_resource path="res://Assets/Original/fireDemon3.png" type="Texture" id=4]
 [ext_resource path="res://uiTHeme.theme" type="Theme" id=5]
+[ext_resource path="res://Assets/Original/demonDie/die6.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Original/demonDie/die2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Original/fireDemon1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Original/fireDemon2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Original/demonDie/die5.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Original/demonDie/die3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Original/demonDie/die4.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Original/demonDie/die1.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove3.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove2.png" type="Texture" id=20]
@@ -43,8 +49,8 @@ animations = [ {
 "name": "move",
 "speed": 15.0
 }, {
-"frames": [  ],
-"loop": true,
+"frames": [ ExtResource( 13 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 6 ) ],
+"loop": false,
 "name": "death",
 "speed": 5.0
 } ]
@@ -194,12 +200,12 @@ script = ExtResource( 2 )
 position = Vector2( 424, 264 )
 z_index = 9
 script = ExtResource( 3 )
+healtPoints = 2
 healthDecrease = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]

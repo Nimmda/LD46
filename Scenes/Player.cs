@@ -12,6 +12,7 @@ public class Player : KinematicBody2D
     private bool isDecreasingHealth = false;
     private string currentAnim = "idle";
     private Camera2D camera = null;
+    public bool dead = false;
 
     Vector2 velocity = new Vector2();
     bool jumping = false;
@@ -60,12 +61,14 @@ public class Player : KinematicBody2D
             currentAnim = "jumping";
         }
 
-        if (sprite.Animation != currentAnim)
-            sprite.Animation = currentAnim;
     }
 
     public override void _PhysicsProcess(float delta)
     {
+        if (dead)
+            return;
+
+
         GetInput();
         velocity.y += Gravity * delta;
 
@@ -76,23 +79,42 @@ public class Player : KinematicBody2D
             jumping = false;
         }
 
-
     }
 
     public override void _Process(float delta)
     {
-        if (!isDecreasingHealth)
-        {
-            isDecreasingHealth = true;
-            DecreaseHealth();
-        }
-
-        SetScale();
-
         if (healtPoints < 0f)
         {
+            if (!dead)
+            {
+                Scale = new Vector2(1f, 1f);
+                sprite.Animation = "death";
+            }
+            dead = true;
+
+            if (sprite.Frame == sprite.Frames.GetFrameCount("death") - 1)
+            {
+                GD.Print("GameOver");
+            }
+        }
+        else
+        {
+            SetScale();
+
+            // set animation
+            if (sprite.Animation != currentAnim)
+                sprite.Animation = currentAnim;
+
+
+
+            if (!isDecreasingHealth)
+            {
+                isDecreasingHealth = true;
+                DecreaseHealth();
+            }
 
         }
+
     }
 
     private async void DecreaseHealth()
