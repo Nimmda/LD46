@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://TileSets/environment.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
@@ -35,6 +35,8 @@
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.5.png" type="Texture" id=33]
 [ext_resource path="res://Scripts/Info.cs" type="Script" id=34]
 [ext_resource path="res://Scripts/UI/MenuController.cs" type="Script" id=35]
+[ext_resource path="res://Shader/fog.shader" type="Shader" id=36]
+[ext_resource path="res://icon.png" type="Texture" id=37]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x19.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x17.png" type="Texture" id=41]
 [ext_resource path="res://Assets/Original/steam/steam_shadow_16x18.png" type="Texture" id=42]
@@ -109,6 +111,12 @@ extents = Vector2( 7.07578, 7 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 8 )
 
+[sub_resource type="ShaderMaterial" id=10]
+render_priority = 1
+shader = ExtResource( 36 )
+shader_param/color = Vector3( 0.33, 0.15, 0.82 )
+shader_param/OCTAVES = 4
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -126,7 +134,7 @@ healthDecrease = 1
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
@@ -179,7 +187,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch"]
 frames = SubResource( 5 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch"]
@@ -196,7 +203,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch2"]
 frames = SubResource( 5 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch2"]
@@ -213,7 +219,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Torches/Torch3"]
 frames = SubResource( 5 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Torches/Torch3"]
@@ -329,6 +334,12 @@ shape = SubResource( 9 )
 [node name="MenuController" type="Node2D" parent="."]
 pause_mode = 2
 script = ExtResource( 35 )
+
+[node name="Fog" type="Sprite" parent="."]
+material = SubResource( 10 )
+position = Vector2( 424, 248 )
+scale = Vector2( 17, 11.5 )
+texture = ExtResource( 37 )
 [connection signal="body_entered" from="Torches/Torch" to="Torches/Torch" method="OnTorchBodyEntered"]
 [connection signal="body_entered" from="Torches/Torch2" to="Torches/Torch2" method="OnTorchBodyEntered"]
 [connection signal="body_entered" from="Torches/Torch3" to="Torches/Torch3" method="OnTorchBodyEntered"]
