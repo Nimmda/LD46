@@ -77,6 +77,10 @@ public class Player : KinematicBody2D
         }
 
 
+    }
+
+    public override void _Process(float delta)
+    {
         if (!isDecreasingHealth)
         {
             isDecreasingHealth = true;
@@ -84,6 +88,11 @@ public class Player : KinematicBody2D
         }
 
         SetScale();
+
+        if (healtPoints < 0f)
+        {
+
+        }
     }
 
     private async void DecreaseHealth()
