@@ -12,9 +12,8 @@ public class HintController : CanvasLayer
 
         hintAnim = GetNode<AnimationPlayer>("Hint");
 
-        ShowHint(1.5f, "Water is your enemy and try to refresh with the torches. Move with <- ->");
+        ShowHint(0.5f, "IGNIS: WHOOOAA! What a ride! I better back to my cosy fireplace in the kings hall. Let's hope there is no water around. Zsssshhhh!");
     }
-
     public async void ShowHint(float waittime, string msg)
     {
 
