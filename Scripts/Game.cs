@@ -6,11 +6,14 @@ public class Game : Node2D
     public List<string> Levels = new List<string>();
     private PackedScene menuScene = null;
     private Transition transition = null;
+    private Player player = null;
+    private bool playerProcessing = true;
 
     private int currentId = -1;
     private Node currentLevel = null;
     public override void _Ready()
     {
+        player = GetNode<Player>("Player");
 
         menuScene = ResourceLoader.Load<PackedScene>("res://Scenes/Menu.tscn");
 
@@ -50,4 +53,9 @@ public class Game : Node2D
 
         GetTree().ChangeSceneTo(menuScene);
     }
+    public void TogglePauseMode()
+    {
+        player.ToggleProcessing();
+    }
+
 }

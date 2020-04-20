@@ -6,8 +6,10 @@ public class Player : KinematicBody2D
     [Export] public int RunSpeed = 100;
     [Export] public int JumpSpeed = -400;
     [Export] public int Gravity = 1200;
+    [Export] public int WaterGravity = 200;
     [Export] public int healtPoints = 100;
     [Export] public int healthDecrease = 5;
+    private bool inWater = false;
     private AnimatedSprite sprite = null;
     private bool isDecreasingHealth = false;
     private string currentAnim = "idle";
@@ -16,6 +18,7 @@ public class Player : KinematicBody2D
 
     Vector2 velocity = new Vector2();
     bool jumping = false;
+    private bool playerProcessing = true;
 
     public override void _Ready()
     {
@@ -70,7 +73,14 @@ public class Player : KinematicBody2D
 
 
         GetInput();
-        velocity.y += Gravity * delta;
+
+        var currentGravity = Gravity;
+
+        if (inWater)
+            currentGravity = WaterGravity;
+
+
+        velocity.y += currentGravity * delta;
 
         velocity = MoveAndSlide(velocity, new Vector2(0, -1));
 
@@ -155,4 +165,20 @@ public class Player : KinematicBody2D
 
     }
 
+    public void ToggleProcessing()
+    {
+        playerProcessing = !playerProcessing;
+
+        sprite.Animation = "idle";
+
+        SetProcess(playerProcessing);
+        SetProcessInput(playerProcessing);
+        SetPhysicsProcess(playerProcessing);
+
+    }
+
+    public void ToggleWaterGravity()
+    {
+        inWater = !inWater;
+    }
 }

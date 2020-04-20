@@ -3,17 +3,24 @@ using System;
 
 public class HintController : CanvasLayer
 {
+    private Game game = null;
 
     private AnimationPlayer hintAnim = null;
     public override void _Ready()
     {
+        game = GetTree().Root.GetNode<Game>("Game");
+
         hintAnim = GetNode<AnimationPlayer>("Hint");
 
-        ShowHint(hintAnim, "TextVisible", 1.5f);
+        ShowHint(1.5f, "Water is your enemy and try to refresh with the torches. Move with <- ->");
     }
 
-    public async void ShowHint(AnimationPlayer anim, string animName, float waittime)
+    public async void ShowHint(float waittime, string msg)
     {
+
+
+        var txtLabel = hintAnim.GetChild(0).GetChild<RichTextLabel>(0);
+        txtLabel.Text = msg;
 
         var timer = new Timer();
         timer.WaitTime = waittime;
@@ -21,36 +28,29 @@ public class HintController : CanvasLayer
         AddChild(timer);
 
         await ToSignal(timer, "timeout");
+
+        game.TogglePauseMode();
+
         hintAnim.GetNode<Panel>("Panel").Visible = true;
         hintAnim.CurrentAnimation = "TextVisible";
-        FadeOutHint(anim, anim.CurrentAnimationLength + 2f);
+        FadeOutHint();
     }
 
-    public async void FadeOutHint(AnimationPlayer anim, float time)
+    public async void FadeOutHint()
     {
         var timer = new Timer();
-        timer.WaitTime = time;
+        timer.WaitTime = hintAnim.CurrentAnimationLength + 2f;
         timer.Autostart = true;
         AddChild(timer);
 
         await ToSignal(timer, "timeout");
 
-        var timePassed = 0.0f;
 
-        var panel = anim.GetNode<Panel>("Panel");
-        var col = panel.Modulate;
+        var panel = hintAnim.GetNode<Panel>("Panel");
 
-        while (timePassed < 1.0f)
-        {
-            timePassed += GetProcessDeltaTime();
-
-
-            col.a -= 2.5f * GetProcessDeltaTime();
-            panel.Modulate = col;
-
-        }
         panel.Visible = false;
-
+        panel.GetNode<RichTextLabel>("RichTextLabel").Text = "";
+        game.TogglePauseMode();
 
     }
 
