@@ -22,7 +22,7 @@ public class Game : Node2D
 
         // add scenes
         //Levels.Add("res://Scenes/Levels/Level_Cellar.tscn");
-        Levels.Add("res://Scenes/Levels/Level_Kitchen.tscn");
+        //Levels.Add("res://Scenes/Levels/Level_Kitchen.tscn");
         Levels.Add("res://Scenes/Levels/Level_GreatHall.tscn");
         //Levels.Add("res://Scenes/Levels/Level_Chimney.tscn");
         //Levels.Add("res://Scenes/Levels/Level_KingsHall.tscn");
