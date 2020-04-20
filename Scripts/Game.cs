@@ -25,6 +25,7 @@ public class Game : Node2D
         Levels.Add("res://Scenes/Levels/Level_Kitchen.tscn");
         Levels.Add("res://Scenes/Levels/Level_GreatHall.tscn");
         Levels.Add("res://Scenes/Levels/Level_Chimney.tscn");
+        Levels.Add("res://Scenes/Levels/Level_KingsHall.tscn");
         Levels.Add("res://Scenes/Levels/Level_End.tscn");
 
         LoadNextLevel();
@@ -58,6 +59,11 @@ public class Game : Node2D
     public void TogglePauseMode()
     {
         player.ToggleProcessing();
+    }
+
+    public void ToggleMusic()
+    {
+        //AudioServer.
     }
 
 }

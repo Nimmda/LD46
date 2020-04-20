@@ -70,6 +70,7 @@ text = "EXIT"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
+bus = "Music"
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="OnStartPressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="OnSettingsPressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="OnCreditsPressed"]

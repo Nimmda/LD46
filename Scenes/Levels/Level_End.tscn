@@ -1,425 +1,69 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=46 format=2]
 
-[ext_resource path="res://Scripts/Exit.cs" type="Script" id=1]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x16.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Original/fireplace4.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x20.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x17.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Original/waterStones/stoneBlockWaterMiddle_16x16.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Original/stoneBlock_16x16.png" type="Texture" id=7]
-[ext_resource path="res://uiTHeme.theme" type="Theme" id=8]
-[ext_resource path="res://Assets/Original/banner.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Original/fireplace2.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/Torch.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/FireBowl.tscn" type="PackedScene" id=12]
-[ext_resource path="res://TileSets/environment.tres" type="TileSet" id=13]
-[ext_resource path="res://Scripts/HintArea.cs" type="Script" id=14]
-[ext_resource path="res://Scripts/LevelStart.cs" type="Script" id=15]
-[ext_resource path="res://Shader/fog.shader" type="Shader" id=16]
-[ext_resource path="res://Assets/Original/waterStones/stoneBlockWaterLeft_16x16.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x18.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x21.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Original/fireplace1.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Original/fireplace3.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Original/fireplace.png" type="Texture" id=22]
-[ext_resource path="res://Scripts/Water.cs" type="Script" id=23]
-[ext_resource path="res://Assets/fonts/Hints_Kenney_Mini.tres" type="DynamicFont" id=24]
-[ext_resource path="res://Scripts/HintController.cs" type="Script" id=25]
-[ext_resource path="res://icon.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Original/doorLeft.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x22.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Original/waterStones/stoneBlockWater_16x16.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x23.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x24.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Original/waterStones/stoneBlockWaterRight_16x16.png" type="Texture" id=32]
-[ext_resource path="res://Assets/Original/steam/steam_shadow_16x19.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Original/doorRight.png" type="Texture" id=34]
-[ext_resource path="res://Scripts/WaterPool.cs" type="Script" id=35]
-[ext_resource path="res://Assets/Original/fireplace5.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Original/intro30.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Original/intro23.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Original/intro20.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Original/intro39.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Original/intro32.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Original/intro36.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Original/intro6.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Original/intro27.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Original/intro34.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Original/intro11.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Original/intro18.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Original/intro16.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Original/intro7.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Original/intro9.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Original/intro38.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Original/intro2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Original/intro4.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Original/intro31.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Original/intro17.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Original/intro1.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Original/intro12.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Original/intro13.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Original/intro8.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Original/intro41.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Original/intro21.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Original/intro26.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Original/intro19.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Original/intro29.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Original/intro24.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Original/intro25.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Original/intro42.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Original/intro43.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Original/intro5.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Original/intro40.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Original/intro14.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Original/intro15.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Original/intro33.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Original/intro28.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Original/intro22.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Original/intro10.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Original/intro35.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Original/intro37.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Original/intro3.png" type="Texture" id=43]
+[ext_resource path="res://Assets/music/mus_gameplay_victory.wav" type="AudioStream" id=44]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 18 ), ExtResource( 33 ), ExtResource( 4 ), ExtResource( 19 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": false,
-"name": "default",
-"speed": 8.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7.07578, 7 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 8 )
-
-[sub_resource type="ShaderMaterial" id=4]
-render_priority = 1
-shader = ExtResource( 16 )
-shader_param/color = Vector3( 0.5, 0.5, 0.5 )
-shader_param/OCTAVES = 4
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8, 24 )
-
-[sub_resource type="Animation" id=6]
-resource_name = "TextVisible"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Hint/Panel/RichTextLabel:percent_visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 10, 32 )
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 183, 26 )
-
-[sub_resource type="Animation" id=9]
-resource_name = "move"
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5, 3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -47, 0 ), Vector2( 80, 0 ), Vector2( -47, 0 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 16, 8 )
-
-[sub_resource type="SpriteFrames" id=11]
-animations = [ {
-"frames": [ ExtResource( 20 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 3 ), ExtResource( 36 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 16 ), ExtResource( 43 ), ExtResource( 17 ), ExtResource( 33 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 40 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 3 ), ExtResource( 25 ), ExtResource( 39 ), ExtResource( 2 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 8 ), ExtResource( 38 ), ExtResource( 28 ), ExtResource( 1 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 37 ), ExtResource( 9 ), ExtResource( 41 ), ExtResource( 6 ), ExtResource( 42 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 34 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[node name="Level" type="Node2D"]
-script = ExtResource( 15 )
+[node name="Node2D" type="Node2D"]
 
-[node name="floor" type="TileMap" parent="."]
-position = Vector2( -12, -6 )
-z_index = 2
-tile_set = ExtResource( 13 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 1, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 1, 0, 458784, 1, 0, 458785, 1, 0, 458786, 1, 0, 458787, 1, 0, 458788, 1, 0, 458789, 1, 0, 458790, 1, 0, 458791, 1, 0, 458792, 1, 0, 458793, 1, 0, 458794, 1, 0, 458795, 1, 0, 458796, 1, 0, 458797, 1, 0, 458798, 1, 0, 458799, 1, 0, 458800, 1, 0, 458801, 1, 0, 458802, 1, 0, 458803, 1, 0, 458804, 1, 0, 458805, 1, 0, 524288, 1, 0, 524293, 8, 0, 524300, 8, 0, 524313, 8, 0, 524326, 8, 0, 524334, 8, 0, 524341, 1, 0, 589824, 1, 0, 589877, 1, 0, 655360, 1, 0, 655362, 10, 0, 655374, 10, 0, 655379, 10, 0, 655390, 10, 0, 655413, 1, 0, 720896, 1, 0, 720949, 1, 0, 786432, 1, 0, 786485, 1, 0, 851968, 1, 0, 851969, 2, 0, 851970, 2, 0, 851971, 2, 0, 851972, 2, 0, 851973, 2, 0, 851974, 2, 0, 851975, 2, 0, 851976, 2, 0, 851977, 2, 0, 851978, 2, 0, 851979, 2, 0, 851980, 2, 0, 851981, 2, 0, 851982, 2, 0, 851983, 2, 0, 851984, 2, 0, 851985, 2, 0, 851986, 2, 0, 851987, 2, 0, 851988, 2, 0, 851989, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 851994, 2, 0, 851995, 2, 0, 851996, 2, 0, 851997, 2, 0, 851998, 2, 0, 851999, 2, 0, 852000, 2, 0, 852001, 2, 0, 852002, 2, 0, 852003, 2, 0, 852004, 2, 0, 852005, 2, 0, 852006, 2, 0, 852007, 2, 0, 852008, 2, 0, 852009, 2, 0, 852010, 2, 0, 852011, 2, 0, 852012, 2, 0, 852013, 2, 0, 852014, 2, 0, 852015, 2, 0, 852016, 2, 0, 852017, 2, 0, 852018, 2, 0, 852019, 2, 0, 852020, 2, 0, 852021, 1, 0 )
-
-[node name="Torches" type="Node" parent="."]
-
-[node name="Torch" parent="Torches" instance=ExtResource( 11 )]
-position = Vector2( 277, 168 )
-
-[node name="Torch2" parent="Torches" instance=ExtResource( 11 )]
-position = Vector2( 358, 168 )
-
-[node name="Torch3" parent="Torches" instance=ExtResource( 11 )]
-position = Vector2( 452, 168 )
-
-[node name="Torch4" parent="Torches" instance=ExtResource( 11 )]
-position = Vector2( 548, 168 )
-
-[node name="Torch5" parent="Torches" instance=ExtResource( 11 )]
-position = Vector2( 679, 168 )
-
-[node name="Water" type="Node" parent="."]
-
-[node name="Middle" type="Area2D" parent="Water"]
-visible = false
-position = Vector2( 460, 546 )
-z_index = 8
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Middle"]
-visible = false
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -22, -197 )
+scale = Vector2( 3.4, 3.4 )
 frames = SubResource( 1 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Middle"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 2 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Middle"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Middle/Stone"]
-texture = ExtResource( 6 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Middle/Stone"]
-shape = SubResource( 3 )
-
-[node name="Middle2" type="Area2D" parent="Water"]
-visible = false
-position = Vector2( 460, 546 )
-z_index = 8
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Middle2"]
-visible = false
-frames = SubResource( 1 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Middle2"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 2 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Middle2"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Middle2/Stone"]
-texture = ExtResource( 6 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Middle2/Stone"]
-shape = SubResource( 3 )
-
-[node name="Left" type="Area2D" parent="Water"]
-visible = false
-position = Vector2( 444, 546 )
-z_index = 8
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Left"]
-visible = false
-frames = SubResource( 1 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Left"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 2 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Left"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Left/Stone"]
-texture = ExtResource( 17 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Left/Stone"]
-shape = SubResource( 3 )
-
-[node name="Right" type="Area2D" parent="Water"]
-visible = false
-position = Vector2( 476, 546 )
-z_index = 8
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Right"]
-visible = false
-frames = SubResource( 1 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Right"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 2 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Right"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Right/Stone"]
-texture = ExtResource( 32 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Right/Stone"]
-shape = SubResource( 3 )
-
-[node name="Solo" type="Area2D" parent="Water"]
-visible = false
-position = Vector2( 556, 546 )
-z_index = 8
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SteamAnimatedSprite" type="AnimatedSprite" parent="Water/Solo"]
-visible = false
-frames = SubResource( 1 )
-offset = Vector2( 0, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Solo"]
-visible = false
-position = Vector2( 0, -5 )
-shape = SubResource( 2 )
-
-[node name="Stone" type="StaticBody2D" parent="Water/Solo"]
-
-[node name="StoneSprite" type="Sprite" parent="Water/Solo/Stone"]
-texture = ExtResource( 29 )
-
-[node name="CollisionShapeStone" type="CollisionShape2D" parent="Water/Solo/Stone"]
-shape = SubResource( 3 )
-
-[node name="Fog" type="Sprite" parent="."]
-visible = false
-material = SubResource( 4 )
-position = Vector2( 424, 248 )
-scale = Vector2( 17, 11.5 )
-texture = ExtResource( 26 )
-
-[node name="Doors" type="Node2D" parent="."]
-
-[node name="Entry" type="Node2D" parent="Doors"]
-position = Vector2( 811, 177 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Doors/Entry"]
-position = Vector2( -8, 0 )
-texture = ExtResource( 34 )
-
-[node name="Exit" type="Area2D" parent="Doors"]
-visible = false
-position = Vector2( 732, 267 )
-monitorable = false
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Doors/Exit"]
-position = Vector2( 8, 0 )
-texture = ExtResource( 27 )
-region_rect = Rect2( 12, 0, 20, 48 )
-region_filter_clip = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Exit"]
-position = Vector2( -8, 0 )
-shape = SubResource( 5 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 0, 0 )
-script = ExtResource( 25 )
-
-[node name="Hint" type="AnimationPlayer" parent="CanvasLayer"]
-anims/TextVisible = SubResource( 6 )
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Hint"]
-visible = false
-anchor_right = 0.075
-anchor_bottom = 0.026
-margin_left = 72.0
-margin_top = 60.0
-margin_right = 112.0
-margin_bottom = 100.0
-theme = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Hint/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -10.0
-custom_fonts/normal_font = ExtResource( 24 )
-text = "Water is your enemy and try to refresh with the torches."
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="banner" type="Node2D" parent="."]
-visible = false
-modulate = Color( 0.603922, 0.603922, 0.603922, 1 )
-position = Vector2( 378, 168 )
-z_index = 1
-
-[node name="banner" type="Sprite" parent="banner"]
-position = Vector2( -2, 0 )
-texture = ExtResource( 9 )
-
-[node name="banner2" type="Sprite" parent="banner"]
-position = Vector2( -130, 0 )
-texture = ExtResource( 9 )
-
-[node name="FireBowl" parent="." instance=ExtResource( 12 )]
-visible = false
-position = Vector2( 908, 542 )
-
-[node name="HintWater" type="Area2D" parent="."]
-visible = false
-position = Vector2( 707, 506 )
-script = ExtResource( 14 )
-Message = "Fire and Water does not match. Beware the floor! Jump with Arrow UP."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HintWater"]
-position = Vector2( 25, 0 )
-shape = SubResource( 7 )
-
-[node name="waterGround" type="Node" parent="."]
-
-[node name="WaterPool" type="Area2D" parent="waterGround"]
-visible = false
-position = Vector2( 89, 483 )
-script = ExtResource( 35 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="waterGround/WaterPool"]
-position = Vector2( 105, 82 )
-shape = SubResource( 8 )
-
-[node name="MovePlatform" type="Node2D" parent="."]
-position = Vector2( 36.5023, 0 )
-
-[node name="Sprite" type="Sprite" parent="MovePlatform"]
-visible = false
-position = Vector2( 232, 386 )
-texture = ExtResource( 7 )
-
-[node name="Sprite2" type="Sprite" parent="MovePlatform"]
-visible = false
-position = Vector2( 248, 386 )
-texture = ExtResource( 7 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovePlatform"]
-playback_speed = 0.7
-anims/move = SubResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovePlatform"]
-visible = false
-position = Vector2( 240, 386 )
-shape = SubResource( 10 )
-
-[node name="FirePlace" type="AnimatedSprite" parent="."]
-position = Vector2( 140, 178 )
-frames = SubResource( 11 )
-frame = 5
+frame = 31
 playing = true
-[connection signal="body_entered" from="Water/Middle" to="Water/Middle" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Water/Middle2" to="Water/Middle2" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Water/Left" to="Water/Left" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Water/Right" to="Water/Right" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Water/Solo" to="Water/Solo" method="OnTorchBodyEntered"]
-[connection signal="body_entered" from="Doors/Exit" to="Doors/Exit" method="OnExitDoorPlayerEntered"]
-[connection signal="body_entered" from="HintWater" to="HintWater" method="OnHintBodyEntered"]
-[connection signal="body_entered" from="waterGround/WaterPool" to="waterGround/WaterPool" method="OnWaterPoolBodyEntered"]
-[connection signal="body_exited" from="waterGround/WaterPool" to="waterGround/WaterPool" method="OnWaterPoolBodyExited"]
+centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 44 )
+autoplay = true
+bus = "Music"

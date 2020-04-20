@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 public class Player : KinematicBody2D
 {
@@ -16,6 +16,13 @@ public class Player : KinematicBody2D
     private Camera2D camera = null;
     public bool dead = false;
 
+    private string[] effectNames = new string[] { "jump", "idle", "die", "absorb", "damage" };
+
+    // Sound
+    private Node nodeEffects = null;
+    private Dictionary<string, List<AudioStreamPlayer2D>> effects = new Dictionary<string, List<AudioStreamPlayer2D>>();
+
+
     Vector2 velocity = new Vector2();
     bool jumping = false;
     private bool playerProcessing = true;
@@ -24,7 +31,25 @@ public class Player : KinematicBody2D
     {
         sprite = GetNode<AnimatedSprite>("Sprite");
         camera = GetNode<Camera2D>("Camera2D");
+        nodeEffects = GetNode<Node>("Effects");
 
+        // Get all Sounds
+
+        foreach (AudioStreamPlayer2D audio in nodeEffects.GetChildren())
+        {
+            foreach (var name in effectNames)
+            {
+                if (audio.Name.BeginsWith(name))
+                {
+                    if (!effects.ContainsKey(name))
+                        effects.Add(name, new List<AudioStreamPlayer2D>());
+
+                    effects[name].Add(audio);
+                }
+
+            }
+
+        }
     }
 
     public void GetInput()
@@ -38,6 +63,7 @@ public class Player : KinematicBody2D
         {
             jumping = true;
             velocity.y = JumpSpeed;
+            PlaySound("jump");
         }
 
         if (right)
@@ -97,6 +123,7 @@ public class Player : KinematicBody2D
         {
             if (!dead)
             {
+                PlaySound("die");
                 sprite.Animation = "death";
             }
             dead = true;
@@ -121,7 +148,10 @@ public class Player : KinematicBody2D
 
             // set animation
             if (sprite.Animation != currentAnim)
+            {
+                PlaySound("idle");
                 sprite.Animation = currentAnim;
+            }
 
 
 
@@ -152,7 +182,31 @@ public class Player : KinematicBody2D
 
     public void AddHealth(int amount)
     {
+        if (amount < 0)
+        {
+            PlaySound("damage");
+        }
+        else
+        {
+            PlaySound("absorb");
+        }
+
+
         healtPoints = Mathf.Min(amount + healtPoints, 100);
+    }
+
+    private void PlaySound(string name)
+    {
+        List<AudioStreamPlayer2D> sounds = null;
+        if (!effects.TryGetValue(name, out sounds))
+            return;
+
+        var id = (int)GD.RandRange(0, sounds.Count);
+
+        GD.Print(id, " ", name);
+        sounds[id].Play();
+
+
     }
 
     private void SetScale()

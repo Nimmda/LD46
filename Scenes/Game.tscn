@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Scripts/Transition.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=3]
 [ext_resource path="res://Assets/Original/fireDemon3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/music/mus_gameplay_loop.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Original/demonDie/die6.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Original/demonDie/die2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Original/fireDemon1.png" type="Texture" id=8]
@@ -12,6 +13,10 @@
 [ext_resource path="res://Assets/Original/demonDie/die3.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Original/demonDie/die4.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Original/demonDie/die1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/sounds/sfx_char_jump_01.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/sounds/sfx_char_die.wav" type="AudioStream" id=15]
+[ext_resource path="res://Assets/sounds/sfx_char_damage_01.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/sounds/sfx_char_absorb_01.wav" type="AudioStream" id=17]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove3.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Original/demonMove/fireDemonMove2.png" type="Texture" id=20]
@@ -28,7 +33,14 @@
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.7.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.10.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Original/demonJump/fireDemonJump.5.png" type="Texture" id=33]
+[ext_resource path="res://Assets/sounds/sfx_char_jump_03.wav" type="AudioStream" id=34]
 [ext_resource path="res://Scripts/UI/MenuController.cs" type="Script" id=35]
+[ext_resource path="res://Assets/sounds/sfx_char_jump_02.wav" type="AudioStream" id=36]
+[ext_resource path="res://Assets/sounds/sfx_char_damage_03.wav" type="AudioStream" id=37]
+[ext_resource path="res://Assets/sounds/sfx_char_absorb_03.wav" type="AudioStream" id=38]
+[ext_resource path="res://Assets/sounds/sfx_char_absorb_02.wav" type="AudioStream" id=39]
+[ext_resource path="res://Assets/sounds/sfx_char_damage_02.wav" type="AudioStream" id=40]
+[ext_resource path="res://Assets/sounds/sfx_char_idle_loop.wav" type="AudioStream" id=41]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -179,7 +191,6 @@ healthDecrease = 1
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
@@ -192,6 +203,41 @@ shape = SubResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 0.4, 0.4 )
+
+[node name="Effects" type="Node" parent="Player"]
+
+[node name="jump1" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 14 )
+
+[node name="jump2" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 36 )
+
+[node name="jump3" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 34 )
+
+[node name="die" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 15 )
+
+[node name="idle" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 41 )
+
+[node name="absorb1" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 17 )
+
+[node name="absorb2" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 39 )
+
+[node name="absorb3" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 38 )
+
+[node name="damage1" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 16 )
+
+[node name="damage2" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 40 )
+
+[node name="damage3" type="AudioStreamPlayer2D" parent="Player/Effects"]
+stream = ExtResource( 37 )
 
 [node name="MenuController" type="Node2D" parent="."]
 pause_mode = 2
@@ -207,3 +253,8 @@ color = Color( 1, 1, 1, 0 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
 anims/FadeIn = SubResource( 4 )
 anims/FadeOut = SubResource( 5 )
+
+[node name="AudioStreamPlayerGameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Music"
