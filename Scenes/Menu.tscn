@@ -16,13 +16,13 @@ __meta__ = {
 StartScene = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.443
-anchor_top = 0.5
-anchor_right = 0.478
-anchor_bottom = 0.5
-margin_right = 40.0
-margin_bottom = 80.0
-rect_scale = Vector2( 1, 0.994247 )
+anchor_left = 0.45
+anchor_right = 0.55
+anchor_bottom = 1.0
+margin_left = 0.200012
+margin_right = 64.36
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
 custom_constants/separation = 10
 alignment = 1
 __meta__ = {
@@ -30,19 +30,39 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_top = 21.0
-margin_right = 75.0
-margin_bottom = 35.88
-size_flags_vertical = 0
+margin_top = 279.0
+margin_right = 166.0
+margin_bottom = 307.067
+size_flags_stretch_ratio = 0.0
 text = "START"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 317.0
+margin_right = 166.0
+margin_bottom = 345.067
+size_flags_stretch_ratio = 0.0
+text = "SETTINGS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+margin_top = 355.0
+margin_right = 166.0
+margin_bottom = 383.067
+size_flags_stretch_ratio = 0.0
+text = "CREDITS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Exit" type="Button" parent="VBoxContainer"]
-margin_top = 45.0
-margin_right = 75.0
-margin_bottom = 59.88
+margin_top = 393.0
+margin_right = 166.0
+margin_bottom = 421.067
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
 text = "EXIT"
@@ -51,4 +71,6 @@ text = "EXIT"
 stream = ExtResource( 4 )
 autoplay = true
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="OnStartPressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="OnStartPressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="OnStartPressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="OnExitPressed"]

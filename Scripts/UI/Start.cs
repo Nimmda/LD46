@@ -21,6 +21,18 @@ public class Start : Control
         }
     }
 
+
+    public void OnSettingsPressed()
+    {
+        GD.PushError("Not implemented yet!");
+    }
+
+    public void OnCreditsPressed()
+    {
+        GD.PushError("Not implemented yet!");
+    }
+
+
     public void OnExitPressed()
     {
         GetTree().Quit();
