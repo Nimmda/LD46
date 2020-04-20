@@ -51,7 +51,6 @@ public class WaterPool : Area2D
 
         if (elapsed > 1f)
         {
-            GD.Print("anim play ", elapsed);
 
             player.AddHealth(-10);
 

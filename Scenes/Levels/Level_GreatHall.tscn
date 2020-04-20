@@ -47,7 +47,7 @@ shader = ExtResource( 12 )
 shader_param/color = Vector3( 0.5, 0.5, 0.5 )
 shader_param/OCTAVES = 4
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 12, 24 )
 
 [sub_resource type="Animation" id=6]
@@ -66,7 +66,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "move"
 length = 3.0
 loop = true
@@ -81,6 +81,26 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 312, 275 ), Vector2( 312, 220 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 40, 8 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "move"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0 ]
 }
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -124,26 +144,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 40, 8 )
-
-[sub_resource type="Animation" id=15]
-resource_name = "move"
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5, 3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 180.0, 360.0 ]
-}
-
-[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 40, 8 )
 
 [node name="Level" type="Node2D"]
@@ -1336,8 +1336,8 @@ shape = SubResource( 3 )
 [node name="Fog" type="Sprite" parent="."]
 modulate = Color( 1, 0.623529, 0.623529, 1 )
 material = SubResource( 4 )
-position = Vector2( 580, 283 )
-scale = Vector2( 25, 25 )
+position = Vector2( 428, 320 )
+scale = Vector2( 35, 35 )
 z_index = 12
 texture = ExtResource( 21 )
 
@@ -1369,12 +1369,14 @@ region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Exit"]
 position = Vector2( 8, 0 )
-shape = SubResource( 17 )
+shape = SubResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 script = ExtResource( 19 )
+StartMessage = "The maid left the floor wet. Again. If I can just make it to the brazier to fill up my energy I'll be fine!"
+blendOutTime = 4.0
 
 [node name="Hint" type="AnimationPlayer" parent="CanvasLayer"]
 anims/TextVisible = SubResource( 6 )
@@ -1462,10 +1464,10 @@ texture = ExtResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovePlatform"]
 autoplay = "move"
 playback_speed = 0.7
-anims/move = SubResource( 9 )
+anims/move = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovePlatform"]
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 
 [node name="MovePlatform2" type="StaticBody2D" parent="."]
 position = Vector2( 492, 447 )
@@ -1497,10 +1499,10 @@ texture = ExtResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovePlatform2"]
 autoplay = "move"
 playback_speed = 0.7
-anims/move = SubResource( 11 )
+anims/move = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovePlatform2"]
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="MovePlatform3" type="StaticBody2D" parent="."]
 position = Vector2( 404, 449 )
@@ -1532,10 +1534,10 @@ texture = ExtResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovePlatform3"]
 autoplay = "move"
 playback_speed = 0.7
-anims/move = SubResource( 13 )
+anims/move = SubResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovePlatform3"]
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 
 [node name="MovePlatform4" type="StaticBody2D" parent="."]
 position = Vector2( 332, 448 )
@@ -1567,10 +1569,10 @@ texture = ExtResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovePlatform4"]
 autoplay = "move"
 playback_speed = 0.7
-anims/move = SubResource( 15 )
+anims/move = SubResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovePlatform4"]
-shape = SubResource( 16 )
+shape = SubResource( 14 )
 [connection signal="body_entered" from="Water/Right" to="Water/Right" method="OnTorchBodyEntered"]
 [connection signal="body_entered" from="Water/middle/Middle" to="Water/middle/Middle" method="OnTorchBodyEntered"]
 [connection signal="body_entered" from="Water/middle/Middle2" to="Water/middle/Middle2" method="OnTorchBodyEntered"]

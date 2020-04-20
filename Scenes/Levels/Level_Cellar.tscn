@@ -245,7 +245,7 @@ shape = SubResource( 3 )
 [node name="Fog" type="Sprite" parent="."]
 material = SubResource( 4 )
 position = Vector2( 514, 316 )
-scale = Vector2( 25, 25 )
+scale = Vector2( 35, 35 )
 z_index = 99
 texture = ExtResource( 21 )
 
@@ -283,7 +283,8 @@ shape = SubResource( 5 )
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 script = ExtResource( 20 )
-StartMessage = "IGNIS: WHOOOAA! What a ride! I better back to my cosy fireplace in the kings hall. Let's hope there is no water around. Zsssshhhh!"
+StartMessage = "IGNIS: WHOOOAA! What a ride! I'd better head back to my cosy fireplace in the kings hall. Let's hope there is no water around. Zsssshhhh! I just need to collect some power from the brazier and off I am!"
+blendOutTime = 8.0
 
 [node name="Hint" type="AnimationPlayer" parent="CanvasLayer"]
 anims/TextVisible = SubResource( 6 )

@@ -5,6 +5,7 @@ public class HintController : CanvasLayer
 {
 
     [Export] public string StartMessage = "Message Here";
+    [Export] public float blendOutTime = 2f;
     private Game game = null;
 
     private AnimationPlayer hintAnim = null;
@@ -40,7 +41,7 @@ public class HintController : CanvasLayer
     public async void FadeOutHint()
     {
         var timer = new Timer();
-        timer.WaitTime = hintAnim.CurrentAnimationLength + 2f;
+        timer.WaitTime = hintAnim.CurrentAnimationLength + blendOutTime;
         timer.Autostart = true;
         AddChild(timer);
 

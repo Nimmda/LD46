@@ -203,7 +203,6 @@ public class Player : KinematicBody2D
 
         var id = (int)GD.RandRange(0, sounds.Count);
 
-        GD.Print(id, " ", name);
         sounds[id].Play();
 
 

@@ -21,12 +21,11 @@ public class Game : Node2D
         VisualServer.SetDefaultClearColor(new Color(0f, 0f, 0f, 1));
 
         // add scenes
-        Levels.Add("res://Scenes/Levels/Level_Cellar.tscn");
+        //Levels.Add("res://Scenes/Levels/Level_Cellar.tscn");
         Levels.Add("res://Scenes/Levels/Level_Kitchen.tscn");
         Levels.Add("res://Scenes/Levels/Level_GreatHall.tscn");
-        Levels.Add("res://Scenes/Levels/Level_Chimney.tscn");
-        Levels.Add("res://Scenes/Levels/Level_KingsHall.tscn");
-        Levels.Add("res://Scenes/Levels/Level_End.tscn");
+        //Levels.Add("res://Scenes/Levels/Level_Chimney.tscn");
+        //Levels.Add("res://Scenes/Levels/Level_KingsHall.tscn");
 
         LoadNextLevel();
     }
@@ -66,4 +65,11 @@ public class Game : Node2D
         //AudioServer.
     }
 
+
+    public void LoadEnding()
+    {
+        var error = GetTree().ChangeScene("res://Scenes/Levels/Level_End.tscn");
+
+        GD.Print(error);
+    }
 }

@@ -19,6 +19,11 @@ config/name="LD46"
 run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+window/stretch/aspect="keep"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "MonoDebuggerQM" )

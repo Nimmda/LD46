@@ -302,7 +302,6 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Doors/Exit"]
 position = Vector2( 8, 0 )
 frames = SubResource( 5 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Exit"]
@@ -313,6 +312,7 @@ shape = SubResource( 6 )
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 script = ExtResource( 15 )
+StartMessage = "How I missed the crackling of home. Here we go!"
 
 [node name="Hint" type="AnimationPlayer" parent="CanvasLayer"]
 anims/TextVisible = SubResource( 7 )
