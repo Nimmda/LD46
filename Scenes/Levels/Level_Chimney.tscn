@@ -1,0 +1,132 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Exit.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/FireBowl.cs" type="Script" id=2]
+[ext_resource path="res://uiTHeme.theme" type="Theme" id=7]
+[ext_resource path="res://TileSets/environment.tres" type="TileSet" id=9]
+[ext_resource path="res://Scripts/LevelStart.cs" type="Script" id=11]
+[ext_resource path="res://Shader/fog.shader" type="Shader" id=12]
+[ext_resource path="res://Assets/fonts/Hints_Kenney_Mini.tres" type="DynamicFont" id=18]
+[ext_resource path="res://Scripts/HintController.cs" type="Script" id=19]
+[ext_resource path="res://icon.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Original/doorLeft.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Original/doorRight.png" type="Texture" id=28]
+[ext_resource path="res://Scenes/FireBowl.tscn" type="PackedScene" id=31]
+
+[sub_resource type="ShaderMaterial" id=4]
+render_priority = 1
+shader = ExtResource( 12 )
+shader_param/color = Vector3( 0.5, 0.5, 0.5 )
+shader_param/OCTAVES = 4
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 8, 24 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "TextVisible"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hint/Panel/RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="floor" type="TileMap" parent="."]
+position = Vector2( -12, -6 )
+z_index = 2
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1966046, 1, 0, -1966041, 1, 0, -1900510, 1, 0, -1900505, 1, 0, -1834974, 1, 0, -1834969, 1, 0, -1769438, 1, 0, -1769433, 1, 0, -1703902, 1, 0, -1703897, 1, 0, -1638366, 1, 0, -1638361, 1, 0, -1572830, 1, 0, -1572825, 1, 0, -1507294, 1, 0, -1507289, 1, 0, -1441758, 1, 0, -1441753, 1, 0, -1376222, 1, 0, -1376217, 1, 0, -1310686, 1, 0, -1310681, 1, 0, -1245150, 1, 0, -1245145, 1, 0, -1179614, 1, 0, -1179609, 1, 0, -1114078, 1, 0, -1114073, 1, 0, -1048542, 1, 0, -1048537, 1, 0, -983006, 1, 0, -983001, 1, 0, -917470, 1, 0, -917465, 1, 0, -851934, 1, 0, -851929, 1, 0, -786398, 1, 0, -786393, 1, 0, -720862, 1, 0, -720857, 1, 0, -655326, 1, 0, -655321, 1, 0, -589790, 1, 0, -589785, 1, 0, -524254, 1, 0, -524251, 1, 0, -524250, 1, 0, -524249, 1, 0, -458718, 1, 0, -458713, 1, 0, -393182, 1, 0, -393177, 1, 0, -327646, 1, 0, -327645, 1, 0, -327644, 1, 0, -327641, 1, 0, -262110, 1, 0, -262105, 1, 0, -196574, 1, 0, -196569, 1, 0, -131038, 1, 0, -131035, 1, 0, -131034, 1, 0, -131033, 1, 0, -65502, 1, 0, -65497, 1, 0, 34, 1, 0, 39, 1, 0, 65570, 1, 0, 65575, 1, 0, 131106, 1, 0, 131107, 1, 0, 131111, 1, 0, 196642, 1, 0, 196643, 1, 0, 196644, 1, 0, 196647, 1, 0, 262178, 1, 0, 262183, 1, 0, 327714, 1, 0, 327719, 1, 0, 393250, 1, 0, 393253, 1, 0, 393254, 1, 0, 393255, 1, 0, 458786, 1, 0, 458791, 1, 0, 524322, 1, 0, 524327, 1, 0, 589858, 1, 0, 589859, 1, 0, 589863, 1, 0, 655394, 1, 0, 655399, 1, 0, 720930, 1, 0, 720935, 1, 0, 786466, 1, 0, 786470, 1, 0, 786471, 1, 0, 852002, 1, 0, 852007, 1, 0, 917538, 1, 0, 917543, 1, 0, 983074, 1, 0, 983077, 1, 0, 983078, 1, 0, 983079, 1, 0, 1048610, 1, 0, 1048615, 1, 0, 1114146, 1, 0, 1114151, 1, 0, 1179682, 1, 0, 1179683, 1, 0, 1179687, 1, 0, 1245218, 1, 0, 1245223, 1, 0, 1310754, 1, 0, 1310758, 1, 0, 1310759, 1, 0, 1376290, 1, 0, 1376295, 1, 0, 1441826, 1, 0, 1441827, 1, 0, 1441831, 1, 0, 1507362, 1, 0, 1507367, 1, 0, 1572898, 1, 0, 1572903, 1, 0, 1638434, 1, 0, 1638435, 1, 0, 1638436, 1, 0, 1638439, 1, 0, 1703970, 1, 0, 1703975, 1, 0, 1769506, 1, 0, 1769511, 1, 0, 1835042, 1, 0, 1835046, 1, 0, 1835047, 1, 0, 1900578, 1, 0, 1900583, 1, 0, 1966114, 1, 0, 1966115, 1, 0, 1966119, 1, 0, 2031650, 1, 0, 2031655, 1, 0, 2097186, 1, 0, 2097191, 1, 0, 2162722, 1, 0, 2162725, 1, 0, 2162726, 1, 0, 2162727, 1, 0, 2228258, 1, 0, 2228263, 1, 0, 2293794, 1, 0, 2293799, 1, 0, 2359330, 1, 0, 2359331, 1, 0, 2359335, 1, 0, 2424866, 1, 0, 2424871, 1, 0, 2490402, 1, 0, 2490407, 1, 0, 2555938, 1, 0, 2555942, 1, 0, 2555943, 1, 0, 2621474, 1, 0, 2621479, 1, 0, 2687010, 1, 0, 2687015, 1, 0, 2752546, 1, 0, 2752547, 1, 0, 2752551, 1, 0, 2818082, 1, 0, 2818087, 1, 0, 2883618, 1, 0, 2883623, 1, 0, 2949154, 1, 0, 2949158, 1, 0, 2949159, 1, 0, 3014690, 1, 0, 3014695, 1, 0, 3080226, 1, 0, 3080227, 1, 0, 3080231, 1, 0, 3145762, 1, 0, 3145767, 1, 0, 3211298, 1, 0, 3211302, 1, 0, 3211303, 1, 0, 3276834, 1, 0, 3276839, 1, 0, 3342370, 1, 0, 3342371, 1, 0, 3342375, 1, 0, 3407906, 1, 0, 3407911, 1, 0, 3473442, 1, 0, 3473446, 1, 0, 3473447, 1, 0, 3538978, 1, 0, 3538983, 1, 0, 3604514, 1, 0, 3604519, 1, 0, 3670050, 1, 0, 3670051, 1, 0, 3670055, 1, 0, 3735586, 1, 0, 3735591, 1, 0, 3801122, 1, 0, 3801126, 1, 0, 3801127, 1, 0, 3866658, 1, 0, 3866663, 1, 0, 3932194, 1, 0, 3932195, 1, 0, 3932199, 1, 0, 3997730, 1, 0, 3997735, 1, 0, 4063266, 1, 0, 4063271, 1, 0, 4128802, 1, 0, 4128803, 1, 0, 4128804, 1, 0, 4128805, 1, 0, 4128806, 1, 0, 4128807, 1, 0 )
+
+[node name="Water" type="Node" parent="."]
+
+[node name="Fog" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 610, 255 )
+scale = Vector2( 25, 30 )
+z_index = 99
+texture = ExtResource( 20 )
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Entry" type="Node2D" parent="Doors"]
+position = Vector2( 594, 978 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Doors/Entry"]
+position = Vector2( -8, 0 )
+texture = ExtResource( 28 )
+
+[node name="Exit" type="Area2D" parent="Doors"]
+position = Vector2( 594, -158 )
+scale = Vector2( -1, 1 )
+monitorable = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Doors/Exit"]
+position = Vector2( 8, 0 )
+texture = ExtResource( 21 )
+region_rect = Rect2( 12, 0, 20, 48 )
+region_filter_clip = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Exit"]
+position = Vector2( -8, 0 )
+shape = SubResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+script = ExtResource( 19 )
+
+[node name="Hint" type="AnimationPlayer" parent="CanvasLayer"]
+anims/TextVisible = SubResource( 6 )
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Hint"]
+visible = false
+anchor_right = 0.075
+anchor_bottom = 0.026
+margin_left = 72.0
+margin_top = 60.0
+margin_right = 195.2
+margin_bottom = 144.4
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Hint/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/normal_font = ExtResource( 18 )
+visible_characters = 0
+percent_visible = 0.0
+text = "Water is your enemy and try to refresh with the torches."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FireBowl" type="Area2D" parent="." instance=ExtResource( 31 )]
+position = Vector2( 567, 987 )
+script = ExtResource( 2 )
+[connection signal="body_entered" from="Doors/Exit" to="Doors/Exit" method="OnExitDoorPlayerEntered"]

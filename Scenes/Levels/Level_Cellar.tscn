@@ -249,13 +249,6 @@ scale = Vector2( 25, 25 )
 z_index = 99
 texture = ExtResource( 21 )
 
-[node name="Fog2" type="Sprite" parent="."]
-material = SubResource( 4 )
-position = Vector2( 514, 316 )
-scale = Vector2( 25, 25 )
-z_index = 99
-texture = ExtResource( 21 )
-
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Entry" type="Node2D" parent="Doors"]
