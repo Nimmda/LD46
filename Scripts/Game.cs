@@ -21,8 +21,10 @@ public class Game : Node2D
         VisualServer.SetDefaultClearColor(new Color(0f, 0f, 0f, 1));
 
         // add scenes
-        Levels.Add("res://Scenes/Levels/Level1.tscn");
-        Levels.Add("res://Scenes/Levels/Level2.tscn");
+        Levels.Add("res://Scenes/Levels/Level_Kitchen.tscn");
+        Levels.Add("res://Scenes/Levels/Level_Kitchen.tscn");
+        Levels.Add("res://Scenes/Levels/Level_GreatHall.tscn");
+        Levels.Add("res://Scenes/Levels/Level_End.tscn");
 
         LoadNextLevel();
     }
