@@ -54,11 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scenes\HintController.cs" />
-    <Compile Include="Scenes\Player.cs" />
     <Compile Include="Scripts\*.cs" />
-    <Compile Include="Scripts\UI\MenuController.cs" />
-    <Compile Include="Scripts\UI\Start.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

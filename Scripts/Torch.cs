@@ -6,7 +6,6 @@ using System;
 public class Torch : Area2D
 {
     private AnimatedSprite sprite = null;
-    private Sprite stone = null;
     public override void _Ready()
     {
         sprite = GetNode<AnimatedSprite>("AnimatedSprite");

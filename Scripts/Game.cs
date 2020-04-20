@@ -7,7 +7,6 @@ public class Game : Node2D
     private PackedScene menuScene = null;
     private Transition transition = null;
     private Player player = null;
-    private bool playerProcessing = true;
 
     private int currentId = -1;
     private Node currentLevel = null;
@@ -22,8 +21,8 @@ public class Game : Node2D
         VisualServer.SetDefaultClearColor(new Color(0f, 0f, 0f, 1));
 
         // add scenes
-        Levels.Add("res://Scenes/Level1.tscn");
-        Levels.Add("res://Scenes/Level2.tscn");
+        Levels.Add("res://Scenes/Levels/Level1.tscn");
+        Levels.Add("res://Scenes/Levels/Level2.tscn");
 
         LoadNextLevel();
     }

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Transition.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
-[ext_resource path="res://Scenes/Player.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/Player.cs" type="Script" id=3]
 [ext_resource path="res://Assets/Original/fireDemon3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Original/demonDie/die6.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Original/demonDie/die2.png" type="Texture" id=7]
@@ -179,7 +179,6 @@ healthDecrease = 1
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
