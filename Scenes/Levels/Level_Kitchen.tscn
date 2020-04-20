@@ -195,7 +195,7 @@ shape = SubResource( 2 )
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 script = ExtResource( 19 )
-StartMessage = "Oh no, the pipes are leaking again, those nasty drops give me the chills. Good thing there are many torches around!"
+StartMessage = "Oh no, the pipes are leaking again, those nasty drops give me the chills. Good thing there are many braziers around!"
 
 [node name="Hint" type="AnimationPlayer" parent="CanvasLayer"]
 anims/TextVisible = SubResource( 3 )
@@ -245,6 +245,12 @@ texture = ExtResource( 8 )
 
 [node name="FireBowl" parent="." instance=ExtResource( 31 )]
 position = Vector2( 929, 553 )
+
+[node name="FireBowl2" parent="." instance=ExtResource( 31 )]
+position = Vector2( 232, 553 )
+
+[node name="FireBowl3" parent="." instance=ExtResource( 31 )]
+position = Vector2( 419, 331 )
 
 [node name="waterGround" type="Node" parent="."]
 
