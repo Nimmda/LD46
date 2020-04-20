@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_char_idle_loop.wav-cebe6e9ba022590188a1fc0b95423f58.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/sfx_char_idle_loop.wav"
+dest_files=[ "res://.import/sfx_char_idle_loop.wav-cebe6e9ba022590188a1fc0b95423f58.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

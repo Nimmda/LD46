@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_char_die.wav-078c93b2ef5bae44b8f20119c6e8e335.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/sfx_char_die.wav"
+dest_files=[ "res://.import/sfx_char_die.wav-078c93b2ef5bae44b8f20119c6e8e335.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

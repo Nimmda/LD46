@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_char_absorb_03.wav-3b86a7894f81e193a34f9b2acd8d38a1.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/sfx_char_absorb_03.wav"
+dest_files=[ "res://.import/sfx_char_absorb_03.wav-3b86a7894f81e193a34f9b2acd8d38a1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
