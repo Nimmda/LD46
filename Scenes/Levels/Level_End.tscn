@@ -50,9 +50,9 @@
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 16 ), ExtResource( 43 ), ExtResource( 17 ), ExtResource( 33 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 40 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 3 ), ExtResource( 25 ), ExtResource( 39 ), ExtResource( 2 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 8 ), ExtResource( 38 ), ExtResource( 28 ), ExtResource( 1 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 37 ), ExtResource( 9 ), ExtResource( 41 ), ExtResource( 6 ), ExtResource( 42 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 34 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 32 ) ],
-"loop": false,
+"loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 6.0
 } ]
 
 [node name="Node2D" type="Node"]
@@ -71,9 +71,9 @@ __meta__ = {
 
 [node name="TextureButton" type="Button" parent="CenterContainer"]
 margin_left = 192.0
-margin_top = 59.0
+margin_top = 60.0
 margin_right = 832.0
-margin_bottom = 539.0
+margin_bottom = 540.0
 rect_min_size = Vector2( 640, 480 )
 theme = ExtResource( 45 )
 
@@ -82,3 +82,4 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 centered = false
 script = ExtResource( 46 )
+RunningTime = 7.0

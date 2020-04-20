@@ -8,26 +8,26 @@ public class EndScene : AnimatedSprite
     // private string b = "text";
 
     // Called when the node enters the scene tree for the first time.
-    private bool isPlaying = false;
+    [Export] public string SceneToLoad = "Menu";
+    [Export] public float RunningTime = 5f;
+    private float elapsed = 0f;
+
     public override void _Ready()
     {
-
-
+        Play("default");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        if (!isPlaying)
-        {
-            Frame = 0;
-            Playing = true;
-            isPlaying = true;
-        }
-        else
-        {
-            if (Frame == Animation.Length - 1)
-                GetTree().ChangeScene("res://Scenes/Menu.tscn");
-        }
+
+        if (elapsed > RunningTime)
+            GetTree().ChangeScene($"res://Scenes/{SceneToLoad}.tscn");
+
+        if (Input.IsActionPressed("Cancel"))
+            GetTree().ChangeScene($"res://Scenes/{SceneToLoad}.tscn");
+
+        elapsed += delta;
     }
 }
+

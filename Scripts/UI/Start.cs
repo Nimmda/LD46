@@ -29,7 +29,7 @@ public class Start : Control
 
     public void OnCreditsPressed()
     {
-        GD.PushError("Not implemented yet!");
+        GetTree().ChangeScene("res://Scenes/Credits.tscn");
     }
 
 
