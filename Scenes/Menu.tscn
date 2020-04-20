@@ -71,6 +71,6 @@ text = "EXIT"
 stream = ExtResource( 4 )
 autoplay = true
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="OnStartPressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="OnStartPressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="OnStartPressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="OnCreditsPressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="OnExitPressed"]
