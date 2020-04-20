@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Original/firebowl2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Original/firebowl3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Original/firebowl4.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Original/firebowl5.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Original/firebowl1.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/FireBowl.cs" type="Script" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 19.0
+
+[node name="FireBowl" type="Area2D"]
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="OnTorchBodyEntered"]
+[connection signal="body_exited" from="." to="." method="OnTorchBodyExited"]
