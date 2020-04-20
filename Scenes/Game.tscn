@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Scripts/Transition.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Game.cs" type="Script" id=2]
@@ -41,6 +41,8 @@
 [ext_resource path="res://Assets/sounds/sfx_char_absorb_02.wav" type="AudioStream" id=39]
 [ext_resource path="res://Assets/sounds/sfx_char_damage_02.wav" type="AudioStream" id=40]
 [ext_resource path="res://Assets/sounds/sfx_char_idle_loop.wav" type="AudioStream" id=41]
+[ext_resource path="res://Assets/Original/gameOver.png" type="Texture" id=42]
+[ext_resource path="res://Assets/music/mus_gameplay_defeat.wav" type="AudioStream" id=43]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,15 +51,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "move",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "jumping",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "move",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 6 ) ],
 "loop": false,
@@ -191,6 +193,7 @@ healthDecrease = 1
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
@@ -239,6 +242,11 @@ stream = ExtResource( 40 )
 [node name="damage3" type="AudioStreamPlayer2D" parent="Player/Effects"]
 stream = ExtResource( 37 )
 
+[node name="GameOver" type="Sprite" parent="Player"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 42 )
+
 [node name="MenuController" type="Node2D" parent="."]
 pause_mode = 2
 script = ExtResource( 35 )
@@ -258,3 +266,7 @@ anims/FadeOut = SubResource( 5 )
 stream = ExtResource( 5 )
 autoplay = true
 bus = "Music"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 43 )
+[connection signal="finished" from="AudioStreamPlayer2D" to="Player" method="OnAudioDefeatFinished"]

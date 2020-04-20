@@ -22,10 +22,16 @@ public class Player : KinematicBody2D
     private Node nodeEffects = null;
     private Dictionary<string, List<AudioStreamPlayer2D>> effects = new Dictionary<string, List<AudioStreamPlayer2D>>();
 
+    private bool isDefeatSet = false;
 
     Vector2 velocity = new Vector2();
     bool jumping = false;
     private bool playerProcessing = true;
+
+    public void OnAudioDefeatFinished()
+    {
+        GetTree().Root.GetNode<Game>("Game").GameOver();
+    }
 
     public override void _Ready()
     {
@@ -131,7 +137,15 @@ public class Player : KinematicBody2D
             if (sprite.Frame == sprite.Frames.GetFrameCount("death") - 1)
             {
                 sprite.Stop();
-                GetTree().Root.GetNode<Game>("Game").GameOver();
+
+                if (!isDefeatSet)
+                {
+                    GetNode<Sprite>("GameOver").Visible = true;
+                    GetNode<AudioStreamPlayer>("../AudioStreamPlayerGameMusic").Stop();
+                    GetNode<AudioStreamPlayer2D>("../AudioStreamPlayer2D").Play();
+                    isDefeatSet = true;
+                }
+
             }
             else
             {             // set scaling with frame id
@@ -182,6 +196,9 @@ public class Player : KinematicBody2D
 
     public void AddHealth(int amount)
     {
+        if (dead)
+            return;
+
         if (amount < 0)
         {
             PlaySound("damage");

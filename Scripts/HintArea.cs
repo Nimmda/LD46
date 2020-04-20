@@ -14,6 +14,7 @@ public class HintArea : Area2D
         if (body is Player)
         {
             Disconnect("body_entered", this, "OnHintBodyEntered");
+            hintController.blendOutTime = 2f;
             hintController.ShowHint(1f, Message);
         }
     }
