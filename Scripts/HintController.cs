@@ -3,6 +3,8 @@ using System;
 
 public class HintController : CanvasLayer
 {
+
+    [Export] public string StartMessage = "Message Here";
     private Game game = null;
 
     private AnimationPlayer hintAnim = null;
@@ -12,7 +14,7 @@ public class HintController : CanvasLayer
 
         hintAnim = GetNode<AnimationPlayer>("Hint");
 
-        ShowHint(0.5f, "IGNIS: WHOOOAA! What a ride! I better back to my cosy fireplace in the kings hall. Let's hope there is no water around. Zsssshhhh!");
+        ShowHint(0.5f, StartMessage);
     }
     public async void ShowHint(float waittime, string msg)
     {
