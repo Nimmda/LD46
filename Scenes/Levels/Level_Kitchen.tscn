@@ -189,31 +189,31 @@ tile_data = PoolIntArray( 11, 1, 0, 64, 1, 0, 65547, 1, 0, 65600, 1, 0, 131083, 
 [node name="Torches" type="Node" parent="."]
 
 [node name="Torch" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 1891, -569 )
+position = Vector2( 556, 414 )
 
 [node name="Torch2" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 1597, -616 )
+position = Vector2( 189, 522 )
 
 [node name="Torch4" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 1397, -679 )
+position = Vector2( 204, 414 )
 
 [node name="Torch5" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 1466, -724 )
+position = Vector2( 392, 327 )
 
 [node name="Torch6" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 1641, -724 )
+position = Vector2( 548, 331 )
 
 [node name="Torch7" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 1853, -724 )
+position = Vector2( 627, 331 )
 
 [node name="Torch9" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 2006, -900 )
+position = Vector2( 705, 331 )
 
 [node name="Torch8" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 2234, -724 )
+position = Vector2( 939, 266 )
 
 [node name="Torch3" parent="Torches" instance=ExtResource( 30 )]
-position = Vector2( 1769, -569 )
+position = Vector2( 813, 200 )
 
 [node name="Water" type="Node" parent="."]
 
@@ -322,7 +322,7 @@ texture = ExtResource( 23 )
 shape = SubResource( 3 )
 
 [node name="Fog" type="Sprite" parent="."]
-modulate = Color( 0.415686, 0.745098, 0.964706, 0.623529 )
+modulate = Color( 0.415686, 0.745098, 0.964706, 1 )
 material = SubResource( 4 )
 position = Vector2( 597, 300 )
 scale = Vector2( 25, 25 )
