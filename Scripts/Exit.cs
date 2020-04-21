@@ -3,6 +3,7 @@ using System;
 
 public class Exit : Area2D
 {
+    [Export] public bool isLastLevel = false;
     public override void _Ready()
     {
 
@@ -18,7 +19,10 @@ public class Exit : Area2D
 
     private void LoadLevel()
     {
-        GetTree().Root.GetNode<Game>("Game").LoadEnding();
+        if (isLastLevel)
+            GetTree().Root.GetNode<Game>("Game").LoadEnding();
+        else
+            GetTree().Root.GetNode<Game>("Game").LoadNextLevel();
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.

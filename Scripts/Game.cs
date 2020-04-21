@@ -52,7 +52,7 @@ public class Game : Node2D
 
     public void GameOver()
     {
-
+        
         GetTree().ChangeSceneTo(menuScene);
     }
     public void TogglePauseMode()
