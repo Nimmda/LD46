@@ -298,11 +298,11 @@ script = ExtResource( 19 )
 __meta__ = {
 "_edit_group_": true
 }
+isLastLevel = true
 
 [node name="Sprite" type="AnimatedSprite" parent="Doors/Exit"]
 position = Vector2( 8, 0 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Exit"]
