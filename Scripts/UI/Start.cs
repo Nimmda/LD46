@@ -11,7 +11,9 @@ public class Start : Control
     public override void _Ready()
     {
         scene = ResourceLoader.Load<PackedScene>(StartScene.ResourcePath);
+
     }
+
 
     public void OnStartPressed()
     {

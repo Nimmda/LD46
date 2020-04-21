@@ -28,6 +28,19 @@ window/stretch/aspect="keep"
 
 enabled=PoolStringArray( "MonoDebuggerQM" )
 
+[importer_defaults]
+
+wav={
+"compress/mode": 0,
+"edit/loop": true,
+"edit/normalize": false,
+"edit/trim": false,
+"force/8_bit": false,
+"force/max_rate": false,
+"force/max_rate_hz": 44100,
+"force/mono": false
+}
+
 [mono]
 
 debugger_agent/wait_timeout=10000
