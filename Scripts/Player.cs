@@ -27,11 +27,7 @@ public class Player : KinematicBody2D
     Vector2 velocity = new Vector2();
     bool jumping = false;
     private bool playerProcessing = true;
-
-    public void OnAudioDefeatFinished()
-    {
-        GetTree().Root.GetNode<Game>("Game").GameOver();
-    }
+    private float elapsed;
 
     public override void _Ready()
     {
@@ -144,7 +140,17 @@ public class Player : KinematicBody2D
                     GetNode<AudioStreamPlayer>("../AudioStreamPlayerGameMusic").Stop();
                     GetNode<AudioStreamPlayer2D>("../AudioStreamPlayer2D").Play();
                     isDefeatSet = true;
+                    elapsed = 0f;
                 }
+                else
+                {
+                    if (elapsed > 2f)
+                    {
+                        GetTree().Root.GetNode<Game>("Game").GameOver();
+                    }
+                    elapsed += delta;
+                }
+
 
             }
             else

@@ -51,15 +51,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "death",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "jumping",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "death",
+"speed": 4.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": true,
@@ -268,4 +268,3 @@ bus = "Music"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 43 )
-[connection signal="finished" from="AudioStreamPlayer2D" to="Player" method="OnAudioDefeatFinished"]
