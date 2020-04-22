@@ -57,10 +57,9 @@ animations = [ {
 } ]
 
 [node name="Control" type="Control"]
-anchor_left = 0.211
-anchor_top = 0.092
-anchor_right = 0.835
-anchor_bottom = 0.89
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 0
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -75,7 +74,6 @@ autoplay = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 3
 playing = true
 centered = false
 flip_h = true

@@ -280,8 +280,6 @@ position = Vector2( -8, 0 )
 shape = SubResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 script = ExtResource( 20 )
 StartMessage = "IGNIS: WHOOOAA! What a ride! I'd better head back to my cosy fireplace in the kings hall. Let's hope there is no water around. Zsssshhhh! I just need to collect some power from the brazier and off I am!"
 blendOutTime = 8.0
@@ -295,8 +293,8 @@ anchor_right = 0.075
 anchor_bottom = 0.026
 margin_left = 72.0
 margin_top = 60.0
-margin_right = 195.2
-margin_bottom = 144.4
+margin_right = 305.0
+margin_bottom = 206.52
 theme = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -309,6 +307,8 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 19 )
 visible_characters = 0
 percent_visible = 0.0
