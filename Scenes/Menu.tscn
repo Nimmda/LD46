@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Scripts/UI/Start.cs" type="Script" id=1]
 [ext_resource path="res://uiTHeme.theme" type="Theme" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://Assets/Original/intro27.png" type="Texture" id=46]
 [ext_resource path="res://Assets/Original/intro30.png" type="Texture" id=47]
 [ext_resource path="res://Assets/Original/intro23.png" type="Texture" id=48]
+[ext_resource path="res://Scenes/SoundSettings.tscn" type="PackedScene" id=49]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -71,54 +72,65 @@ StartScene = ExtResource( 3 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
+bus = "Music"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 24
+frame = 11
 playing = true
 centered = false
 flip_h = true
 
-[node name="Start" type="Button" parent="."]
-margin_left = 391.936
-margin_top = 73.8
-margin_right = 521.936
-margin_bottom = 101.867
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 28, 30 )
+texture = ExtResource( 9 )
+centered = false
+region_rect = Rect2( 108, 40, 204, 108 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 396.0
+margin_top = 64.0
+margin_right = 521.0
+margin_bottom = 188.0
+custom_constants/separation = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 28.0667
 size_flags_stretch_ratio = 0.0
 text = "START"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Button" parent="."]
-visible = false
-margin_left = 392.0
-margin_top = 94.0
-margin_right = 522.0
-margin_bottom = 122.067
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 37.0
+margin_right = 125.995
+margin_bottom = 65.0667
 size_flags_stretch_ratio = 0.0
 text = "SETTINGS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Button" parent="."]
-margin_left = 391.936
-margin_top = 112.8
-margin_right = 521.936
-margin_bottom = 140.867
+[node name="Credits" type="Button" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 125.0
+margin_bottom = 102.067
 size_flags_stretch_ratio = 0.0
 text = "CREDITS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="."]
-margin_left = 391.936
-margin_top = 150.8
-margin_right = 521.936
-margin_bottom = 178.867
+[node name="Exit" type="Button" parent="VBoxContainer"]
+margin_top = 111.0
+margin_right = 125.0
+margin_bottom = 139.067
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
 text = "EXIT"
@@ -126,12 +138,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 28, 30 )
-texture = ExtResource( 9 )
-centered = false
-region_rect = Rect2( 108, 40, 204, 108 )
-[connection signal="pressed" from="Start" to="." method="OnStartPressed"]
-[connection signal="pressed" from="Settings" to="." method="OnSettingsPressed"]
-[connection signal="pressed" from="Credits" to="." method="OnCreditsPressed"]
-[connection signal="pressed" from="Exit" to="." method="OnExitPressed"]
+[node name="SoundSettings" parent="." instance=ExtResource( 49 )]
+visible = false
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="OnStartPressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="OnCreditsPressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="OnExitPressed"]

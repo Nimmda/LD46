@@ -20,7 +20,7 @@ public class Player : KinematicBody2D
 
     // Sound
     private Node nodeEffects = null;
-    private Dictionary<string, List<AudioStreamPlayer2D>> effects = new Dictionary<string, List<AudioStreamPlayer2D>>();
+    private Dictionary<string, List<AudioStreamPlayer>> effects = new Dictionary<string, List<AudioStreamPlayer>>();
 
     private bool isDefeatSet = false;
 
@@ -37,14 +37,14 @@ public class Player : KinematicBody2D
 
         // Get all Sounds
 
-        foreach (AudioStreamPlayer2D audio in nodeEffects.GetChildren())
+        foreach (AudioStreamPlayer audio in nodeEffects.GetChildren())
         {
             foreach (var name in effectNames)
             {
                 if (audio.Name.BeginsWith(name))
                 {
                     if (!effects.ContainsKey(name))
-                        effects.Add(name, new List<AudioStreamPlayer2D>());
+                        effects.Add(name, new List<AudioStreamPlayer>());
 
                     effects[name].Add(audio);
                 }
@@ -220,7 +220,7 @@ public class Player : KinematicBody2D
 
     private void PlaySound(string name)
     {
-        List<AudioStreamPlayer2D> sounds = null;
+        List<AudioStreamPlayer> sounds = null;
         if (!effects.TryGetValue(name, out sounds))
             return;
 

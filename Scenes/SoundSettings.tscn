@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Settings.cs" type="Script" id=1]
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Effects = NodePath("PanelBackground/VBoxSettings/HSliderEffects")
+Music = NodePath("PanelBackground/VBoxSettings/HSliderMusic")
+
+[node name="PanelBackground" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxSettings" type="VBoxContainer" parent="PanelBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -89.0
+margin_top = -202.0
+margin_right = 92.0
+margin_bottom = 230.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckboxMaster" type="CheckBox" parent="PanelBackground/VBoxSettings"]
+margin_right = 181.0
+margin_bottom = 24.0
+custom_constants/check_vadjust = 1
+custom_constants/hseparation = 10
+text = "Sound On"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelVolumeMusic" type="Label" parent="PanelBackground/VBoxSettings"]
+margin_top = 49.0
+margin_right = 181.0
+margin_bottom = 63.0
+text = "Music:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSliderMusic" type="HSlider" parent="PanelBackground/VBoxSettings"]
+margin_top = 88.0
+margin_right = 181.0
+margin_bottom = 104.0
+min_value = -72.0
+max_value = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelEffects" type="Label" parent="PanelBackground/VBoxSettings"]
+margin_top = 129.0
+margin_right = 181.0
+margin_bottom = 143.0
+text = "Effects"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSliderEffects" type="HSlider" parent="PanelBackground/VBoxSettings"]
+margin_top = 168.0
+margin_right = 181.0
+margin_bottom = 184.0
+min_value = -72.0
+max_value = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="PanelBackground/VBoxSettings"]
+margin_top = 209.0
+margin_right = 181.0
+margin_bottom = 229.0
+text = "Back"
+[connection signal="toggled" from="PanelBackground/VBoxSettings/CheckboxMaster" to="." method="OnCheckboxMasterToggled"]
+[connection signal="value_changed" from="PanelBackground/VBoxSettings/HSliderMusic" to="." method="OnHSliderMusicValueChanged"]
+[connection signal="value_changed" from="PanelBackground/VBoxSettings/HSliderEffects" to="." method="OnHSliderEffectsValueChanged"]
+[connection signal="pressed" from="PanelBackground/VBoxSettings/Back" to="." method="OnBackPressed"]

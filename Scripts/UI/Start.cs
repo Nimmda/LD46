@@ -26,7 +26,7 @@ public class Start : Control
 
     public void OnSettingsPressed()
     {
-        GD.PushError("Not implemented yet!");
+        GetNode<Settings>("SoundSettings").Visible = true;
     }
 
     public void OnCreditsPressed()
